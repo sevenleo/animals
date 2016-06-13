@@ -22,22 +22,29 @@ class PrepareData:
                 if i != 0: 
                     xi = [] 
 
-                    if self.OutcomeType(row[3]) != 99:
-                        print "-------------------"
-                        print row[3]
-                        self.OutcomeSubtype(row[4])
-                        self.AnimalType(row[5])
-                        self.SexuponOutcome1(row[6])
-                        self.SexuponOutcome2(row[6])
-                        self.AgeuponOutcome(row[7])
-                        self.Breed(row[8])
-                        self.Color1(row[9])
-                        self.Color2(row[9])
+                    print "\n"
+                    xi.append ( self.Name(row[1]) )
+                    xi.append ( self.OutcomeType(row[3]) )
+                    xi.append ( self.OutcomeSubtype(row[4]) )
+                    xi.append ( self.AnimalType(row[5]) )
+                    xi.append ( self.SexuponOutcome1(row[6]) )
+                    xi.append ( self.SexuponOutcome2(row[6]) )
+                    xi.append ( self.AgeuponOutcome(row[7]) )
+                    xi.append ( self.Breed(row[8]) )
+                    xi.append ( self.Color1(row[9]) )
+                    xi.append ( self.Color2(row[9])  )
+                    print xi
 
 
 
 #SWITCHS
 #http://www.pydanny.com/why-doesnt-python-have-switch-case.html
+    def Name(self,value):
+        if value is '':
+            return 
+        else:
+            return 0
+
     def OutcomeType(self, value):
         options = {
             'Return_to_owner': 0,
@@ -70,7 +77,7 @@ class PrepareData:
             'Court/Investigation': 14,
             '': 15
         }
-        print value
+        #print value
         return options.get(value,"NaN")
 
 
@@ -79,7 +86,7 @@ class PrepareData:
             'Dog': 0,
             'Cat': 1
         }
-        print value
+        #print value
         return options.get(value,"NaN")
 
 
@@ -91,7 +98,7 @@ class PrepareData:
             'Unknown': 3
         }
         
-        print value.split(" ")[0]
+        #print value.split(" ")[0]
         return options.get(value.split(" ")[0],"NaN")
         #return "Intact, Spayed, Neutered, Unknown"
 
@@ -99,10 +106,10 @@ class PrepareData:
     def SexuponOutcome2(self, value):
 
         if value.endswith("Male"):
-            print "Male"
+            #print "Male"
             return 0
         else:
-            print "Female"
+            #print "Female"
             return 1
 
     def AgeuponOutcome(self, value):
@@ -120,27 +127,34 @@ class PrepareData:
             elif string.startswith("weeks"):
                 number=int(number)*7
             
-            print number
+            #print number
             return number
        
 
     def Breed (self, value):
         if value.endswith("Mix"):
-            print "Mix"
-            return value
+            #print "Mix"
+            return 1
         else:
-            print "Pure"
-            return value
+            #print "Pure"
+            return 0
 
 
     def Color1 (self, value):
-        print value.split("/")[0]
+        #print value.split("/")[0]
         return value.split("/")[0]
 
 
     def Color2 (self, value):
-        print value.split("/")[1:]
-        return value.split("/")[1:]
+        #print value.split("/")[1:]
+        #color2 = value.split("/")[1:] //como tratar se nao existe?
+        #color1,color2 = value.split("/") //como tratar se nao existe?
+        #solucao1:
+
+        if value.split("/")[0] == value.split("/")[-1]:
+            return 
+        else:
+         return value.split("/")[-1]
 
 
 
