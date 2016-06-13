@@ -2,7 +2,7 @@
 import csv
 import os
 
-os.system('cls')
+#os.system('cls')
 # 0
 # AnimalID   
 
@@ -22,7 +22,8 @@ class PrepareData:
                 if i != 0: 
                     xi = [] 
 
-                    print "\n"
+                    print ( "\n")
+                    xi.append (row[0]) ##remover
                     xi.append ( self.Name(row[1]) )
                     xi.append ( self.OutcomeType(row[3]) )
                     xi.append ( self.OutcomeSubtype(row[4]) )
@@ -33,7 +34,7 @@ class PrepareData:
                     xi.append ( self.Breed(row[8]) )
                     xi.append ( self.Color1(row[9]) )
                     xi.append ( self.Color2(row[9])  )
-                    print xi
+                    print ( xi)
 
 
 
@@ -77,7 +78,7 @@ class PrepareData:
             'Court/Investigation': 14,
             '': 15
         }
-        #print value
+        #print ( value)
         return options.get(value,"NaN")
 
 
@@ -86,7 +87,7 @@ class PrepareData:
             'Dog': 0,
             'Cat': 1
         }
-        #print value
+        #print ( value)
         return options.get(value,"NaN")
 
 
@@ -98,7 +99,7 @@ class PrepareData:
             'Unknown': 3
         }
         
-        #print value.split(" ")[0]
+        #print ( value.split(" ")[0] )
         return options.get(value.split(" ")[0],"NaN")
         #return "Intact, Spayed, Neutered, Unknown"
 
@@ -106,10 +107,10 @@ class PrepareData:
     def SexuponOutcome2(self, value):
 
         if value.endswith("Male"):
-            #print "Male"
+            #print ( "Male" )
             return 0
         else:
-            #print "Female"
+            #print ( "Female" )
             return 1
 
     def AgeuponOutcome(self, value):
@@ -127,26 +128,26 @@ class PrepareData:
             elif string.startswith("weeks"):
                 number=int(number)*7
             
-            #print number
+            #print ( number )
             return number
        
 
     def Breed (self, value):
         if value.endswith("Mix"):
-            #print "Mix"
+            #print ( "Mix" )
             return 1
         else:
-            #print "Pure"
+            #print ( "Pure" )
             return 0
 
 
     def Color1 (self, value):
-        #print value.split("/")[0]
+        #print ( value.split("/")[0] )
         return value.split("/")[0]
 
 
     def Color2 (self, value):
-        #print value.split("/")[1:]
+        #print ( value.split("/")[1:] )
         #color2 = value.split("/")[1:] //como tratar se nao existe?
         #color1,color2 = value.split("/") //como tratar se nao existe?
         #solucao1:
@@ -154,7 +155,7 @@ class PrepareData:
         if value.split("/")[0] == value.split("/")[-1]:
             return 
         else:
-         return value.split("/")[-1]
+            return value.split("/")[-1]
 
 
 
@@ -162,8 +163,9 @@ class PrepareData:
 
 microtrain =  "microtrain.csv"   
 train = "../data/shelter_animal/train.csv"
+train = "train.csv"
 test = "../data/shelter_animal/test.csv"
-PrepareData("microtrain.csv")
+PrepareData(microtrain)
 
 
 
