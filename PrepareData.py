@@ -42,6 +42,8 @@ class PrepareData:
                     x.extend ( [self.Color1(row[9])] )
                     x.extend ( [self.Color2(row[9]) ] )
 
+                    
+
                     self.y.append ( self.OutcomeType(row[3]) )
                     self.y2.append ( self.OutcomeSubtype(row[4]) )
 
@@ -136,6 +138,7 @@ class PrepareData:
         else:
             #print ( "Female" )
             return 1
+
 
     def AgeuponOutcome(self, value):
         
