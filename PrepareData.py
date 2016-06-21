@@ -1,7 +1,10 @@
 #coding: utf-8
+
 import csv
 import os
 import numpy as np
+
+import random, copy
 
 #os.system('cls')
 # 0
@@ -296,11 +299,28 @@ train = "../data/shelter_animal/train.csv"
 train = "train.csv"
 test = "../data/shelter_animal/test.csv"
 data = PrepareData(microtrain)
-print(data.X)
+#print(data.X)
 #print( np.array(data.y) )
 #print(data.y2)
 
 
+
+
+print('\nAnimals?\n')
+
+
+testes = copy.deepcopy(data.X)
+
+rede = Perceptron(amostras=data.X, saidas=data.y, 
+                    taxa_aprendizado=0.5, epocas=1000)
+
+# treina a rede
+rede.treinar()
+
+for teste in testes:
+    rede.testar(teste, 'A', 'B')
+    #rede.testar(teste, 'Return_to_owner', 'Euthanasia', 'Adoption', 'Transfer', 'Died')
+            
 
 
 #=========================comentarios=========================#
