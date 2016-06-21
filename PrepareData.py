@@ -1,6 +1,7 @@
 #coding: utf-8
 import csv
 import os
+import numpy as np
 
 #os.system('cls')
 # 0
@@ -12,30 +13,55 @@ import os
  
 class PrepareData:
 
-    x = []
-    y_ = []
+
 
     def __init__(self,file):
+        x = []
+        #x.append("zero")
+        #x.extend(["AnimalID","Name","DateTime","AnimalType","SexuponOutcome","AgeuponOutcome","Breed","Color"])
+        #print(x[0:8])
+        y = []
+        y2 = []
+
         with open(file, 'r') as csv_file:
             train = csv.reader(csv_file, delimiter=',')
+            end=0
             for i, row in enumerate(train):
                 if i != 0: 
-                    xi = [] 
+                    #print ( "\n")
 
-                    print ( "\n")
-                    xi.append (row[0]) ##remover
-                    xi.append ( self.Name(row[1]) )
-                    xi.append ( self.OutcomeType(row[3]) )
-                    xi.append ( self.OutcomeSubtype(row[4]) )
-                    xi.append ( self.AnimalType(row[5]) )
-                    xi.append ( self.SexuponOutcome1(row[6]) )
-                    xi.append ( self.SexuponOutcome2(row[6]) )
-                    xi.append ( self.AgeuponOutcome(row[7]) )
-                    xi.append ( self.Breed(row[8]) )
-                    xi.append ( self.Color1(row[9]) )
-                    xi.append ( self.Color2(row[9])  )
-                    print ( xi)
+                    y.append ( self.OutcomeType(row[3]) )
+                    y2.append ( self.OutcomeSubtype(row[4]) )
 
+                    x.extend ( [row[0]]) ##remover
+                    x.extend ( [self.Name(row[1])])
+                    x.extend ( [self.AnimalType(row[5])])
+                    x.extend ( [self.SexuponOutcome1(row[6])] )
+                    x.extend ( [self.SexuponOutcome2(row[6]) ])
+                    x.extend ( [self.AgeuponOutcome(row[7])] )
+                    x.extend ( [self.Breed(row[8]) ])
+                    x.extend ( [self.Color1(row[9])] )
+                    x.extend ( [self.Color2(row[9]) ] )
+                    
+                    #start   = end
+                    #end    = start+9
+                    #print(x[start:end])
+                    #print("OutcomeType:", y[i-1])
+                    #print("OutcomeSubType:", y2[i-1])
+                #endif
+            #endfor 
+        #endwith
+        X=np.array(x).reshape(len(x)/9,9)
+
+        for i in xrange(len(x)/9):
+            print(X[i]) #matrix
+            print(y[i]) #retorno_esperado #OutcomeType
+            print(y2[i]) #retorno_esperado2 #OutcomeSubType
+            print("\n")
+
+        
+
+    #endinit
 
 
 #SWITCHS
