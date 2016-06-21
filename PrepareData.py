@@ -291,7 +291,8 @@ class Perceptron2:
         def __init__(self,_x,_y):
                 self.x = _x
                 self.y = _y
-                with open("./dataset.csv", 'r') as csv_file:
+                '''
+                with open("./perceptron/dataset.csv", 'r') as csv_file:
                         csv_file = csv.reader(csv_file, delimiter=';')
 
                         for row in csv_file:
@@ -301,6 +302,7 @@ class Perceptron2:
                                 xi.append(float(row[2]))
                                 self.y.append(row[3])
                                 self.x.append(xi)
+				'''
                 self.fit()
 
         def fit(self):
@@ -346,6 +348,7 @@ class Perceptron2:
                                 saida.append(1)
                 return saida
 
+
 #========================= MAIN.EXEC =========================#
 
 
@@ -355,16 +358,14 @@ train = "../data/shelter_animal/train.csv"
 train = "train.csv"
 test = "../data/shelter_animal/test.csv"
 data = PrepareData(microtrain)
-#print(data.X)
+print(data.X)
 #print( np.array(data.y) )
 #print(data.y2)
 
 
 
 #-------------------------Perceptron
-print('\nAnimals?\n')
-
-
+'''
 testes = copy.deepcopy(data.X)
 
 rede = Perceptron(amostras=data.X, saidas=data.y, 
@@ -382,94 +383,93 @@ for teste in testes:
             
 #-------------------------Perceptron2
 
-
-print(perceptron.predict(perceptron.x))
+'''
+rede = Perceptron2(data.X,data.y)
+print(Perceptron2.predict(data.X))
 
 
 
 #=========================comentarios=========================#
-
-
 """
-Separar as raças populares para adocao.
+	Separar as raças populares para adocao.
 
-Raças disponiveis (sem mixes):
-Airedale Terrier
-Akita
-American Bulldog
-American Pit Bull Terrier
-American Staffordshire Terrier
-Anatol Shepherd
-Angora
-Australian Cattle Dog
-Australian Shepherd
-Basset Hound
-Beagle
-Bernese Mountain Dog
-Black
-Black Mouth Cur
-Blue Lacy
-Border Collie
-Border Terrier
-Boxer
-Breed
-Cairn Terrier
-Cardigan Welsh Corgi
-Catahoula
-Chesa Bay Retr
-Chihuahua Longhair
-Chihuahua Shorthair
-Chinese Sharpei
-Chow Chow
-Cocker Spaniel
-Collie Smooth
-Dachshund
-Dachshund Longhair
-Dachshund Wirehair
-Doberman Pinsch
-Dogo Argentino
-Dogue De Bordeaux
-Domestic Longhair
-Domestic Medium Hair
-Domestic Shorthair
-English Bulldog
-English Foxhound
-English Pointer
-Exotic Shorthair
-Flat Coat Retriever
-German Shepherd
-Great Dane
-Great Pyrenees
-Italian Greyhound
-Jack Russell Terrier
-Labrador Retriever
-Lhasa Apso
-Maltese
-Manchester Terrier
-Manx
-Miniature Pinscher
-Miniature Poodle
-Miniature Schnauzer
-Norfolk Terrier
-Pit Bull
-Plott Hound
-Pointer
-Queensland Heeler
-Rat Terrier
-Rhod Ridgeback
-Rottweiler
-Russian Blue
-Scottish Terrier
-Shetland Sheepdog
-Shih Tzu
-Siamese
-Siberian Husky
-Tan Hound
-Tibetan Terrier
-Treeing Walker Coonhound
-Vizsla
-Whippet
-Yorkshire Terrier
-Yorkshire Terrier 
+	Raças disponiveis (sem mixes):
+	Airedale Terrier
+	Akita
+	American Bulldog
+	American Pit Bull Terrier
+	American Staffordshire Terrier
+	Anatol Shepherd
+	Angora
+	Australian Cattle Dog
+	Australian Shepherd
+	Basset Hound
+	Beagle
+	Bernese Mountain Dog
+	Black
+	Black Mouth Cur
+	Blue Lacy
+	Border Collie
+	Border Terrier
+	Boxer
+	Breed
+	Cairn Terrier
+	Cardigan Welsh Corgi
+	Catahoula
+	Chesa Bay Retr
+	Chihuahua Longhair
+	Chihuahua Shorthair
+	Chinese Sharpei
+	Chow Chow
+	Cocker Spaniel
+	Collie Smooth
+	Dachshund
+	Dachshund Longhair
+	Dachshund Wirehair
+	Doberman Pinsch
+	Dogo Argentino
+	Dogue De Bordeaux
+	Domestic Longhair
+	Domestic Medium Hair
+	Domestic Shorthair
+	English Bulldog
+	English Foxhound
+	English Pointer
+	Exotic Shorthair
+	Flat Coat Retriever
+	German Shepherd
+	Great Dane
+	Great Pyrenees
+	Italian Greyhound
+	Jack Russell Terrier
+	Labrador Retriever
+	Lhasa Apso
+	Maltese
+	Manchester Terrier
+	Manx
+	Miniature Pinscher
+	Miniature Poodle
+	Miniature Schnauzer
+	Norfolk Terrier
+	Pit Bull
+	Plott Hound
+	Pointer
+	Queensland Heeler
+	Rat Terrier
+	Rhod Ridgeback
+	Rottweiler
+	Russian Blue
+	Scottish Terrier
+	Shetland Sheepdog
+	Shih Tzu
+	Siamese
+	Siberian Husky
+	Tan Hound
+	Tibetan Terrier
+	Treeing Walker Coonhound
+	Vizsla
+	Whippet
+	Yorkshire Terrier
+	Yorkshire Terrier 
 """
 
