@@ -182,9 +182,6 @@ class PrepareData:
             return value.split("/")[-1]
 
 
-
-
-
 #-------------------------Perceptron
 class Perceptron:
 
@@ -287,8 +284,67 @@ class Perceptron:
         return 1 if u >= 0 else -1
 
 
+#-------------------------Perceptron2
+class Perceptron2:
+        x = []
+        y = []
+        def __init__(self,_x,_y):
+                self.x = _x
+                self.y = _y
+                with open("./dataset.csv", 'r') as csv_file:
+                        csv_file = csv.reader(csv_file, delimiter=';')
 
+                        for row in csv_file:
+                                xi = []
+                                xi.append(float(row[0]))
+                                xi.append(float(row[1]))
+                                xi.append(float(row[2]))
+                                self.y.append(row[3])
+                                self.x.append(xi)
+                self.fit()
 
+        def fit(self):
+
+                self.W=np.ones(len(self.x[0]))
+                self.B=1
+                
+                delta = 10^5
+                erro_i = 10^5
+                self.l_rate = 0.8
+                self.margem_de_erro = 0.05
+
+                n = 0
+                while delta > self.margem_de_erro:
+                        i = 0
+                        ErroTotal = 0
+                        while i < len(self.x):
+                                self.x[i] = np.array(self.x[i])
+
+                                Y = 1/(1 + np.e ** - np.dot(self.W, self.x[i]) + self.B)
+
+                                erro = np.float64(self.y[i]) - Y
+
+                                ErroTotal = ErroTotal + abs(erro)
+                                self.learn_erro(self.x[i], erro)
+                                print("----------------------------------------")
+                                print(self.W)
+                                i = i + 1
+                        delta = abs(erro_i - ErroTotal)
+                        erro_i = ErroTotal
+                        n = 1 + n
+
+        def learn_erro(self, xi, erro):
+                self.W = self.W + self.l_rate * erro * xi
+                self.B = self.B + self.l_rate * erro
+
+        def predict(self, X):
+                saida = []
+                for xi in X:
+                        if np.dot(self.W, xi) < 0.5:
+                                saida.append(0)
+                        else:
+                                saida.append(1)
+                return saida
 
 #========================= MAIN.EXEC =========================#
 
@@ -305,7 +361,7 @@ data = PrepareData(microtrain)
 
 
 
-
+#-------------------------Perceptron
 print('\nAnimals?\n')
 
 
@@ -320,7 +376,15 @@ rede.treinar()
 for teste in testes:
     rede.testar(teste, 'A', 'B')
     #rede.testar(teste, 'Return_to_owner', 'Euthanasia', 'Adoption', 'Transfer', 'Died')
+
+
+
             
+#-------------------------Perceptron2
+
+
+print(perceptron.predict(perceptron.x))
+
 
 
 #=========================comentarios=========================#
