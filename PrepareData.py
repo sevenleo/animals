@@ -14,8 +14,8 @@ import numpy as np
 
 #-------------------------PrepareData 
 class PrepareData:
-    X=[]
-    y = []
+    X  = []
+    y  = []
     y2 = []
     def __init__(self,file):
         x = []
@@ -41,6 +41,8 @@ class PrepareData:
 
                     self.y.append ( self.OutcomeType(row[3]) )
                     self.y2.append ( self.OutcomeSubtype(row[4]) )
+
+                    
                 #endif
             #endfor 
         #endwith
@@ -295,7 +297,7 @@ train = "train.csv"
 test = "../data/shelter_animal/test.csv"
 data = PrepareData(microtrain)
 print(data.X)
-#print(data.y)
+#print( np.array(data.y) )
 #print(data.y2)
 
 
