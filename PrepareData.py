@@ -17,42 +17,49 @@ import random, copy
 
 #-------------------------PrepareData 
 class PrepareData:
-    X  = []
-    y  = []
-    y2 = []
+    X  = [] #numpy
+    x  = [] #matrix normal = array2D
+    y  = [] #array de saida = valor esperado
+    y2 = [] #dados adicionais
     def __init__(self,file):
-        x = []
-        #x.append("zero")
-        #x.extend(["AnimalID","Name","DateTime","AnimalType","SexuponOutcome","AgeuponOutcome","Breed","Color"])
-        #print(x[0:8])
+        
+        # self.x.append("zero")
+        #self.x.extend(["AnimalID","Name","DateTime","AnimalType","SexuponOutcome","AgeuponOutcome","Breed","Color"])
+        #print( self.x[0:8])
 
         with open(file, 'r') as csv_file:
             train = csv.reader(csv_file, delimiter=',')
             end=0
             for i, row in enumerate(train):
                 if i != 0: 
-                    #print ( "\n")
-                    x.extend ( [row[0]]) ##remover
-                    x.extend ( [self.Name(row[1])])
-                    x.extend ( [self.AnimalType(row[5])])
-                    x.extend ( [self.SexuponOutcome1(row[6])] )
-                    x.extend ( [self.SexuponOutcome2(row[6]) ])
-                    x.extend ( [self.AgeuponOutcome(row[7])] )
-                    x.extend ( [self.Breed(row[8]) ])
-                    x.extend ( [self.Color1(row[9])] )
-                    x.extend ( [self.Color2(row[9]) ] )
-
-                    
 
                     self.y.append ( self.OutcomeType(row[3]) )
                     self.y2.append ( self.OutcomeSubtype(row[4]) )
 
                     
-                #endif
+                    #criar o numpy part 1/2
+                    '''
+                    #print ( "\n")
+                    self.x.extend ( [row[0]]) ##remover
+                    self.x.extend ( [self.Name(row[1])])
+                    self.x.extend ( [self.AnimalType(row[5])])
+                    self.x.extend ( [self.SexuponOutcome1(row[6])] )
+                    self.x.extend ( [self.SexuponOutcome2(row[6]) ])
+                    self.x.extend ( [self.AgeuponOutcome(row[7])] )
+                    self.x.extend ( [self.Breed(row[8]) ])
+                    self.x.extend ( [self.Color1(row[9])] )
+                    self.x.extend ( [self.Color2(row[9]) ] )
+                    '''
+
+                    #criar matrix comum = array de 2 dimensoes
+                    self.x.append( [self.Name(row[1]) , self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7]) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]) ])
+ 
+               #endif
             #endfor 
         #endwith
-        self.X=np.array(x).reshape(len(x)/9,9)
-        #self.Printer(len(x)/9)
+        
+        #self.X=np.array(x).reshape(len(x)/9,9) #criar o numpy part 2/2
+        #self.Printer(len(x)/9) #printar o numpy part
 
     #end__init__
 
@@ -68,25 +75,24 @@ class PrepareData:
     #http://www.pydanny.com/why-doesnt-python-have-switch-case.html
     def Name(self,value):
         if value is '':
-            return 
+            return 1
         else:
-            return 0
+            return 2
 
     def OutcomeType(self, value):
         options = {
-            'Return_to_owner': 0,
-            'Euthanasia': 1,
-            'Adoption': 2,
-            'Transfer': 3,
-            'Died': 4
+            'Return_to_owner': 1,
+            'Euthanasia': 2,
+            'Adoption': 3,
+            'Transfer': 4,
+            'Died': 5
         }
 
-        return options.get(value,"NaN")
+        return options.get(value,-1)
 
 
     def OutcomeSubtype(self, value):
         options = {
-            'Suffering': 0,
             'Foster': 1,
             'In Foster': 1,
             'Partner': 2,
@@ -102,48 +108,48 @@ class PrepareData:
             'In Surgery': 12,
             'Barn': 13,
             'Court/Investigation': 14,
-            '': 15
+            'Suffering': 15,
+            '': 16
         }
         #print ( value)
-        return options.get(value,"NaN")
+        return options.get(value,-1)
 
 
     def AnimalType(self, value):
         options = {
-            'Dog': 0,
-            'Cat': 1
+            'Dog': 1,
+            'Cat': 2
         }
         #print ( value)
-        return options.get(value,"NaN")
+        return options.get(value,-1)
 
 
     def SexuponOutcome1(self, value):
         options = {
-            'Intact': 0,
-            'Spayed': 1,
-            'Neutered': 2,
-            'Unknown': 3
+            'Intact': 1,
+            'Spayed': 2,
+            'Neutered': 3,
+            'Unknown': 4
         }
         
         #print ( value.split(" ")[0] )
-        return options.get(value.split(" ")[0],"NaN")
-        #return "Intact, Spayed, Neutered, Unknown"
+        return options.get(value.split(" ")[0],-1)
 
 
     def SexuponOutcome2(self, value):
 
         if value.endswith("Male"):
             #print ( "Male" )
-            return 0
+            return 1
         else:
             #print ( "Female" )
-            return 1
+            return 2
 
 
     def AgeuponOutcome(self, value):
         
         if value is '': 
-            return 0
+            return -1
         else:
             number = value.split(" ")[0]
             string = value.split(" ")[-1]
@@ -162,15 +168,28 @@ class PrepareData:
     def Breed (self, value):
         if value.endswith("Mix"):
             #print ( "Mix" )
-            return 1
+            return 2
         else:
             #print ( "Pure" )
-            return 0
+            return 1
 
 
     def Color1 (self, value):
         #print ( value.split("/")[0] )
-        return value.split("/")[0]
+        #return value.split("/")[0]
+        options = {
+            'Black': 10,
+            'Blue': 1,
+            'Brown': 2,
+            'Gray': 3,
+            'Orange': 4,
+            'Red': 5,
+            'Sable': 6,
+            'Tan': 7,
+            'Tricolor': 8,
+            'White': 9 
+        }
+        return options.get( value.split(" ")[0], -1)
 
 
     def Color2 (self, value):
@@ -180,9 +199,10 @@ class PrepareData:
         #solucao1:
 
         if value.split("/")[0] == value.split("/")[-1]:
-            return 
+            return 1
         else:
-            return value.split("/")[-1]
+            #return value.split("/")[-1]
+            return 2
 
 
 #-------------------------Perceptron
@@ -202,11 +222,11 @@ class Perceptron:
 
     # função utilizada para treinar a rede
     def treinar(self):
-
+        
         # adiciona -1 para cada amostra
         for amostra in self.amostras:
             amostra.insert(0, -1)
-
+        
         # inicia o vetor de pesos com valores aleatórios pequenos
         for i in range(self.num_amostra):
             self.pesos.append(random.random())
@@ -229,9 +249,12 @@ class Perceptron:
                     é porque foi inserido o -1 em cada amostra
                 '''
                 for j in range(self.num_amostra + 1):
-                    u += self.pesos[j] * self.amostras[i][j]
+                    
+
+                    u += self.pesos[j] * float(self.amostras[i][j])
 
                 # obtém a saída da rede utilizando a função de ativação
+
                 y = self.sinal(u)
 
                 # verifica se a saída da rede é diferente da saída desejada
@@ -242,7 +265,7 @@ class Perceptron:
 
                     # faz o ajuste dos pesos para cada elemento da amostra
                     for j in range (self.num_amostra + 1):
-                        self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro_aux * self.amostras[i][j]
+                        self.pesos[j] = self.pesos[j] + self.taxa_aprendizado * erro_aux * float(self.amostras[i][j])
 
                     erro = True # se entrou, é porque o erro ainda existe
             
@@ -251,6 +274,7 @@ class Perceptron:
             # critério de parada é pelo número de épocas ou se não existir erro
             if num_epocas > self.epocas or not erro:
                 break
+        
 
 
     # função utilizada para testar a rede
@@ -260,6 +284,7 @@ class Perceptron:
 
         # insere o -1
         amostra.insert(0, -1)
+        
 
         '''
             utiliza-se o vetor de pesos ajustado
@@ -267,16 +292,17 @@ class Perceptron:
         '''
         u = 0
         for i in range(self.num_amostra + 1):
-            u += self.pesos[i] * amostra[i]
+            u += self.pesos[i] * float(amostra[i])
+        print(u)
 
         # calcula a saída da rede
         y = self.sinal(u)
 
         # verifica a qual classe pertence
-        if y == -1:
-            print('A amostra pertence a classe %s' % classe1)
-        else:
-            print('A amostra pertence a classe %s' % classe2)
+        #if y == -1:
+        #    print('A amostra pertence a classe %s' % classe1)
+        #else:
+        #    print('A amostra pertence a classe %s' % classe2)
 
 
     def degrau(self, u):
@@ -310,7 +336,8 @@ class Perceptron2:
 
         def fit(self):
 
-                self.W=np.ones(len(self.x[0]))
+                #self.W=np.ones(len(self.x[0])) 
+                self.W=np.ones(8) #teste
                 self.B=1
                 
                 delta = 10^5
@@ -331,8 +358,8 @@ class Perceptron2:
 
                                 ErroTotal = ErroTotal + abs(erro)
                                 self.learn_erro(self.x[i], erro)
-                                print("----------------------------------------")
-                                print(self.W)
+                                #print("----------------------------------------")
+                                #print(self.W)
                                 i = i + 1
                         delta = abs(erro_i - ErroTotal)
                         erro_i = ErroTotal
@@ -349,6 +376,7 @@ class Perceptron2:
                                 saida.append(0)
                         else:
                                 saida.append(1)
+
                 return saida
 
 
@@ -360,36 +388,42 @@ microtrain =  "microtrain.csv"
 train = "../data/shelter_animal/train.csv"
 train = "train.csv"
 test = "../data/shelter_animal/test.csv"
-data = PrepareData(microtrain)
-print(data.X)
+data = PrepareData(train)
+
+#print(data.x)
 #print( np.array(data.y) )
 #print(data.y2)
 
 
 
 #-------------------------Perceptron
-'''
-testes = copy.deepcopy(data.X)
+print("iniciando:")
+testes = copy.deepcopy(data.x)
 
-rede = Perceptron(amostras=data.X, saidas=data.y, 
-                    taxa_aprendizado=0.5, epocas=1000)
-
-# treina a rede
+print("treinando:")
+rede = Perceptron(amostras=data.x, saidas=data.y, taxa_aprendizado=0.5, epocas=1000)
 rede.treinar()
 
+print("testando:")
 for teste in testes:
     rede.testar(teste, 'A', 'B')
     #rede.testar(teste, 'Return_to_owner', 'Euthanasia', 'Adoption', 'Transfer', 'Died')
 
 
+'''
 
-            
+         
 #-------------------------Perceptron2
 
-'''
-rede = Perceptron2(data.X,data.y)
-print(Perceptron2.predict(data.X))
+treinox = np.array(data.x).astype(int)
+treinoy = np.array(data.y).astype(int)
 
+rede = Perceptron2(treinox,treinoy)
+
+testes = np.array(data.x).astype(int)
+
+print(rede.predict(testes))
+'''
 
 
 #=========================comentarios=========================#
