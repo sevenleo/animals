@@ -29,10 +29,6 @@ class PrepareData:
             for i, row in enumerate(train):
                 if i != 0: 
                     #print ( "\n")
-
-                    y.append ( self.OutcomeType(row[3]) )
-                    y2.append ( self.OutcomeSubtype(row[4]) )
-
                     x.extend ( [row[0]]) ##remover
                     x.extend ( [self.Name(row[1])])
                     x.extend ( [self.AnimalType(row[5])])
@@ -42,12 +38,9 @@ class PrepareData:
                     x.extend ( [self.Breed(row[8]) ])
                     x.extend ( [self.Color1(row[9])] )
                     x.extend ( [self.Color2(row[9]) ] )
-                    
-                    #start   = end
-                    #end    = start+9
-                    #print(x[start:end])
-                    #print("OutcomeType:", y[i-1])
-                    #print("OutcomeSubType:", y2[i-1])
+
+                    y.append ( self.OutcomeType(row[3]) )
+                    y2.append ( self.OutcomeSubtype(row[4]) )
                 #endif
             #endfor 
         #endwith
@@ -58,10 +51,7 @@ class PrepareData:
             print(y[i]) #retorno_esperado #OutcomeType
             print(y2[i]) #retorno_esperado2 #OutcomeSubType
             print("\n")
-
-        
-
-    #endinit
+    #end__init__
 
 
 #SWITCHS
