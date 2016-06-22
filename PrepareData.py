@@ -115,30 +115,6 @@ class PrepareData:
         return options.get(value,-1)
 
 
-    def OutcomeSubtype(self, value):
-        options = {
-            'Foster': 1,
-            'In Foster': 1,
-            'Partner': 2,
-            'Offsite': 3,
-            'SCRP': 4,
-            'Aggressive': 5,
-            'Behavior': 6,
-            'Medical': 7,
-            'Rabies Risk': 8,
-            'In Kennel': 9,
-            'Enroute': 10,
-            'At Vet': 11,
-            'In Surgery': 12,
-            'Barn': 13,
-            'Court/Investigation': 14,
-            'Suffering': 15,
-            '': 16
-        }
-        #print ( value)
-        return options.get(value,-1)
-
-
     def AnimalType(self, value):
         options = {
             'Dog': 1,
