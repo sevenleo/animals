@@ -1,8 +1,14 @@
 #coding: utf-8
+
+import csv
+import os
+import numpy as np
+import random, copy
+
 class Perceptron:
 
     def __init__(self, amostras, saidas, taxa_aprendizado, epocas, limiar=-1):
-        print("PerceptronWeb ...............")
+        print("\n\nPerceptronWeb .............................\n\n")
         self.amostras = amostras # todas as amostras
         self.saidas = saidas # saídas respectivas de cada amostra
         self.taxa_aprendizado = taxa_aprendizado # taxa de aprendizado (entre 0 e 1)
@@ -23,7 +29,7 @@ class Perceptron:
         # inicia o vetor de pesos com valores aleatórios pequenos
         for i in range(self.num_amostra):
             self.pesos.append(random.random())
-        print(self.pesos)
+        
 
         # insere o limiar no vetor de pesos
         self.pesos.insert(0, self.limiar)
@@ -91,7 +97,8 @@ class Perceptron:
 
         # calcula a saída da rede
         y = self.sinal(u)
-        print(u)
+        
+        #print(u)
 
 
         # verifica a qual classe pertence

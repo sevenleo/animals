@@ -1,9 +1,14 @@
 #coding: utf-8
+import csv
+import os
+import numpy as np
+import random, copy
+
 class Perceptron2:
         x = []
         y = []
         def __init__(self,_x,_y):
-                print("Perceptron2 ...............")
+                print("\n\nPerceptronLeo .............................\n\n")
                 self.x = _x
                 self.y = _y
 
@@ -46,12 +51,11 @@ class Perceptron2:
 
         def predict(self, X):
                 saida = []
+                
                 for xi in X:
-                		print(np.dot(self.W, xi))
+                	print(np.dot(self.W, xi))
                         #if np.dot(self.W, xi) < 0.5:
                         #        saida.append(0)
                         #else:
                         #        saida.append(1)                
                 return saida
-
-

@@ -22,7 +22,7 @@ class PrepareData:
     y  = [] #array de saida = valor esperado
     y2 = [] #dados adicionais
     def __init__(self,file):
-        print("Preparando data ...............")
+        print("Preparando data .............................")
         # self.x.append("zero")
         #self.x.extend(["AnimalID","Name","DateTime","AnimalType","SexuponOutcome","AgeuponOutcome","Breed","Color"])
         #print( self.x[0:8])
@@ -82,7 +82,7 @@ class PrepareData:
             return 2
 
     def Date(self,value):
-    	
+    	'''
         day    = value.split("-")[2]
         month  = value.split("-")[1]
         hour   = value.split(":")[-3].split(" ")[-1]
@@ -100,6 +100,8 @@ class PrepareData:
             if (day==25 or day==31):
                 return 1
         return 2
+        '''
+        return 0
 
     def OutcomeType(self, value):
         options = {
