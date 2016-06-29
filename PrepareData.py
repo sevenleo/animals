@@ -34,7 +34,7 @@ class PrepareData:
                 if i != 0: 
 
                     self.y.append ( self.OutcomeType(row[3]) )
-                    self.y2.append ( self.OutcomeSubtype(row[4]) )
+                    #self.y2.append ( self.OutcomeSubtype(row[4]) )
 
                     
                     #criar o numpy part 1/2
@@ -82,7 +82,8 @@ class PrepareData:
             return 2
 
     def Date(self,value):
-    	'''
+        return 2
+        """
         day    = value.split("-")[2]
         month  = value.split("-")[1]
         hour   = value.split(":")[-3].split(" ")[-1]
@@ -93,15 +94,15 @@ class PrepareData:
         if month==12:
             if (day==25 or day==31):
                 return 1
-        if month==01:
-            if (day<05):
+        if month==1:
+            if (day<5):
                 return 1
         if month==12:
             if (day==25 or day==31):
                 return 1
         return 2
-        '''
-        return 0
+        """
+
 
     def OutcomeType(self, value):
         options = {
