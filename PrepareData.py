@@ -53,7 +53,7 @@ class PrepareData:
                     '''
 
                     #criar matrix comum = array de 2 dimensoes
-                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7]) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]) ])
+                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7]) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
  
                #endif
             #endfor 

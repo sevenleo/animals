@@ -36,12 +36,11 @@ target_size = y_train.shape[1]
 ds = SDS( input_size, target_size )
 ds.setField( 'input', x_train )
 ds.setField( 'target', y_train )
-print input_size
-print target_size
+
 # init and train
 
 net = buildNetwork( input_size, hidden_size, target_size, bias = True )
-trainer = BackpropTrainer( net,ds )
+trainer = BackpropTrainer( net, ds )
 
 print "training for {} epochs...".format( epochs )
 
