@@ -103,12 +103,11 @@ class Generate:
                 ds.setField( 'target', y_test_dummy )
 
                 # predict
-                
+
                 p = net.activateOnDataset( ds )
                         
                 mse = MSE( y_test, p )
                 rmse = sqrt( mse )
 
                 print "testing RMSE:", rmse
-
                 np.savetxt( output_predictions_file, p, fmt = '%.6f' )
