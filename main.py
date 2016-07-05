@@ -3,6 +3,7 @@
 import csv
 import os
 import numpy as np
+import json
 
 import random, copy
 
@@ -16,7 +17,7 @@ from generate import Generate
 
 
 
-microtrain =  "microtrain.csv"   
+microtrain =  "microtrain.csv"
 train = "../data/shelter_animal/train.csv"
 train = "train.csv"
 test = "../data/shelter_animal/test.csv"
@@ -41,7 +42,7 @@ for teste in testes:
 '''
 
 
-         
+
 #-------------------------Perceptron2
 
 '''
