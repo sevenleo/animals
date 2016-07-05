@@ -155,6 +155,8 @@ class PrepareData:
             number = value.split(" ")[0]
             string = value.split(" ")[-1]
 
+            number=int(number)
+            
             if string.startswith("year"):
                 number=int(number)*365
             elif string.startswith("month"):
@@ -162,6 +164,7 @@ class PrepareData:
             elif string.startswith("weeks"):
                 number=int(number)*7
             
+
             #print ( number )
             return number
        

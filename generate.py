@@ -8,14 +8,16 @@ from math import sqrt
 from pybrain.datasets.supervised import SupervisedDataSet as SDS
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
+from sklearn.metrics import mean_squared_error as MSE
 
 class Generate:
        
-        def __init__(self,_x,_y):
+        #def __init__(self,_x,_y):
+        def __init__(self):
                 print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
 
 
-
+        '''
         def random(self):
                 X=_x
                 y=_y
@@ -23,6 +25,7 @@ class Generate:
                 for line in X:
                         print( "{},{},{},{},{},{}".format(i,random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),) )
                         i=i+1                
+        '''
 
         def train(self,train_file):
                 "train a regression MLP"
@@ -37,8 +40,9 @@ class Generate:
                 epochs = 6 
 
                 # carrega o arquivo de treino
+                print( "...")
                 train = np.loadtxt( train_file, delimiter = ',' )
-
+                print( ".................")
                 #separa em pares 
                 x_train = train[:,0:-1]   #par = (tudo , tudo-ultimo)
                 y_train = train[:,-1]     #par = (tudo , ultimo)
@@ -70,3 +74,41 @@ class Generate:
                         
                 #gera arquivo de saida       
                 pickle.dump( net, open( output_model_file, 'wb' ))
+
+        def predict(self,test_file):
+                model_file = 'model.pkl'
+                output_predictions_file = 'saida_predictions.txt'
+
+                # load model
+                net = pickle.load( open( model_file, 'rb' ))
+
+                # load data
+                test = np.loadtxt( test_file, delimiter = ',' )
+                x_test = test[:,0:-1]
+                y_test = test[:,-1]
+                y_test = y_test.reshape( -1, 1 )
+
+                # you'll need labels. In case you don't have them...
+                y_test_dummy = np.zeros( y_test.shape )
+
+                input_size = x_test.shape[1]
+                target_size = y_test.shape[1]
+
+                assert( net.indim == input_size )
+                assert( net.outdim == target_size )
+
+                # prepare dataset
+                ds = SDS( input_size, target_size )
+                ds.setField( 'input', x_test )
+                ds.setField( 'target', y_test_dummy )
+
+                # predict
+                
+                p = net.activateOnDataset( ds )
+                        
+                mse = MSE( y_test, p )
+                rmse = sqrt( mse )
+
+                print "testing RMSE:", rmse
+
+                np.savetxt( output_predictions_file, p, fmt = '%.6f' )
