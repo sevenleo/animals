@@ -23,10 +23,13 @@ train = "train.csv"
 test = "../data/shelter_animal/test.csv"
 
 
+
 data = PrepareData(microtrain)
 
 
-Generate(data.x,data.y)
+for line in data.x:
+	print(line)
+#Generate(data.x,data.y)
 
 
 #-------------------------Perceptron

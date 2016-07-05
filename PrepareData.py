@@ -94,7 +94,7 @@ class PrepareData:
         if month==12:
             if (day==25 or day==31):
                 return 1
-        if month==1:
+        if month==5:
             if (day<5):
                 return 1
         if month==12:
@@ -169,7 +169,7 @@ class PrepareData:
     def Breed (self, value):
         if value.endswith("Mix"):
             #print ( "Mix" )
-            return 2
+            return 0
         else:
             #print ( "Pure" )
             return 1
@@ -188,9 +188,9 @@ class PrepareData:
             'Sable': 6,
             'Tan': 7,
             'Tricolor': 8,
-            'White': 9 
+            'White': 9
         }
-        return options.get( value.split(" ")[0], -1)
+        return options.get( value.split("/")[0], -1)
 
 
     def Color2 (self, value):

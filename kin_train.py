@@ -7,7 +7,7 @@ from pybrain.datasets.supervised import SupervisedDataSet as SDS
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
 
-train_file = 'data/2train.csv'
+train_file = 'data/train.csv'
 #validation_file = 'data/validation.csv'
 output_model_file = 'model.pkl'
 
