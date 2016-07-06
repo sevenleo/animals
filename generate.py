@@ -1,24 +1,24 @@
 #coding: utf-8
 import csv
 import ast
-
 import os
 import numpy as np
 import random, copy
 import cPickle as pickle
-from math import sqrt
-from pybrain.datasets.supervised import SupervisedDataSet as SDS
-from pybrain.tools.shortcuts import buildNetwork
-from pybrain.supervised.trainers import BackpropTrainer
-from sklearn.metrics import mean_squared_error as MSE
-
-
-from pybrain.datasets            import ClassificationDataSet
-from pybrain.utilities           import percentError
-from pybrain.tools.shortcuts     import buildNetwork
-from pybrain.supervised.trainers import BackpropTrainer
-from pybrain.structure.modules   import SoftmaxLayer
-
+from math                           import sqrt
+from sklearn.metrics                import mean_squared_error as MSE
+from pybrain.datasets.supervised    import SupervisedDataSet as SDS
+from pybrain.tools.shortcuts        import buildNetwork
+from pybrain.supervised.trainers    import BackpropTrainer
+from pybrain.tools.shortcuts        import buildNetwork
+from pybrain.tools.customxml        import NetworkWriter
+from pybrain.tools.customxml        import NetworkReader
+from pybrain.datasets               import ClassificationDataSet
+from pybrain.utilities              import percentError
+from pybrain.tools.shortcuts        import buildNetwork
+from pybrain.supervised.trainers    import BackpropTrainer
+from pybrain.structure.modules      import SoftmaxLayer
+    
 from pylab import ion, ioff, figure, draw, contourf, clf, show, hold, plot
 from scipy import diag, arange, meshgrid, where
 from numpy.random import multivariate_normal
@@ -180,9 +180,16 @@ class Generate:
                 print "____________________________________________________________________________\n"
                 '''
 
-                print(" Criando rede de treinos .............")
+                
 
-                fnn = buildNetwork( traindata.indim, 5, traindata.outdim, outclass=SoftmaxLayer )
+                import os.path
+                if os.path.exists('rede_animal.xml'):
+                    print(" Carregando a rede de treinos *************** ")
+                    fnn = NetworkReader.readFrom('rede_animal.xml')
+                else:
+                    print(" Criando rede de treinos *************** ")
+                    fnn = buildNetwork( traindata.indim, 5, traindata.outdim, outclass=SoftmaxLayer )
+
                 trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
 
                 print("Treinando .............")
@@ -190,6 +197,9 @@ class Generate:
                 for i in range(epochs):
                         print("Treinando epoca ", i)
                         trainer.trainEpochs( steps )
+                        NetworkWriter.writeToFile(fnn, 'rede_animal.xml')
+                        print(" Rede salva em rede_animal.xml (Ok) ")
+
                       
 
 
