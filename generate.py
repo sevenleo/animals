@@ -11,8 +11,12 @@ from pybrain.datasets.supervised    import SupervisedDataSet as SDS
 from pybrain.tools.shortcuts        import buildNetwork
 from pybrain.supervised.trainers    import BackpropTrainer
 from pybrain.tools.shortcuts        import buildNetwork
-from pybrain.tools.customxml        import NetworkWriter
-from pybrain.tools.customxml        import NetworkReader
+
+#from pybrain.tools.customxml        import NetworkWriter
+#from pybrain.tools.customxml        import NetworkReader
+from pybrain.tools.xml.networkwriter import NetworkWriter
+from pybrain.tools.xml.networkreader import NetworkReader
+
 from pybrain.datasets               import ClassificationDataSet
 from pybrain.utilities              import percentError
 from pybrain.tools.shortcuts        import buildNetwork
