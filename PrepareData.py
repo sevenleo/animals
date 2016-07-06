@@ -144,8 +144,8 @@ class PrepareData:
             'Adoption': 0,
             'Died': 1,
             'Euthanasia': 2,
-            'Transfer': 3,
-            'Return_to_owner': 4,
+            'Return_to_owner': 3,
+            'Transfer': 4
         }
 
         return float (options.get(value,0)/4)
