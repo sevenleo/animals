@@ -1,5 +1,7 @@
 #coding: utf-8
 import csv
+import ast
+
 import os
 import numpy as np
 import random, copy
@@ -182,20 +184,19 @@ class Generate:
                 trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
 
                 print("Treinando .............")
-
+                '''
                 for i in range(epochs):
                         print("Treinando epoca ", i)
                         trainer.trainEpochs( steps )
-                        
+                '''      
 
 
                 print("Lendo arquivo de teste e classificando ..........")
                 output = open('animal_output.csv', 'wb')
                 for line in open(test_file, 'r'):
-                        print line
-                        nline = np.fromstring(line, dtype=int, sep=',')
-                        print nline
-                        print fnn.activate(nline)
+                        x = ast.literal_eval(line)
+                        print ( fnn.activate( x ) )
+                        
 
 
                 #print ("Criando arquivo de saida ......................\n")

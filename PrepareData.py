@@ -22,7 +22,7 @@ class PrepareData:
     y  = [] #array de saida = valor esperado
     y2 = [] #dados adicionais
     testx = []
-    
+
     def __init__(self,file):
         print("Preparando data .........")
         agemin,agemax = self.NormalizarIdades(file,False)    
@@ -244,3 +244,88 @@ class PrepareData:
             #return value.split("/")[-1]
             return 2
 
+
+
+
+"""
+Separar as raças populares para adocao.
+
+Raças disponiveis (sem mixes):
+Airedale Terrier
+Akita
+American Bulldog
+American Pit Bull Terrier
+American Staffordshire Terrier
+Anatol Shepherd
+Angora
+Australian Cattle Dog
+Australian Shepherd
+Basset Hound
+Beagle
+Bernese Mountain Dog
+Black
+Black Mouth Cur
+Blue Lacy
+Border Collie
+Border Terrier
+Boxer
+Breed
+Cairn Terrier
+Cardigan Welsh Corgi
+Catahoula
+Chesa Bay Retr
+Chihuahua Longhair
+Chihuahua Shorthair
+Chinese Sharpei
+Chow Chow
+Cocker Spaniel
+Collie Smooth
+Dachshund
+Dachshund Longhair
+Dachshund Wirehair
+Doberman Pinsch
+Dogo Argentino
+Dogue De Bordeaux
+Domestic Longhair
+Domestic Medium Hair
+Domestic Shorthair
+English Bulldog
+English Foxhound
+English Pointer
+Exotic Shorthair
+Flat Coat Retriever
+German Shepherd
+Great Dane
+Great Pyrenees
+Italian Greyhound
+Jack Russell Terrier
+Labrador Retriever
+Lhasa Apso
+Maltese
+Manchester Terrier
+Manx
+Miniature Pinscher
+Miniature Poodle
+Miniature Schnauzer
+Norfolk Terrier
+Pit Bull
+Plott Hound
+Pointer
+Queensland Heeler
+Rat Terrier
+Rhod Ridgeback
+Rottweiler
+Russian Blue
+Scottish Terrier
+Shetland Sheepdog
+Shih Tzu
+Siamese
+Siberian Husky
+Tan Hound
+Tibetan Terrier
+Treeing Walker Coonhound
+Vizsla
+Whippet
+Yorkshire Terrier
+Yorkshire Terrier 
+"""
