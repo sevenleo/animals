@@ -40,31 +40,13 @@ class PrepareData:
                     self.y.append ( self.OutcomeType(row[3]) )
                     #self.y2.append ( self.OutcomeSubtype(row[4]) )
 
-                    
-                    #criar o numpy part 1/2
-                    '''
-                    #print ( "\n")
-                    self.x.extend ( [row[0]]) ##remover
-                    self.x.extend ( [self.Name(row[1])])
-                    self.x.extend ( [self.Date(row[2])])
-                    self.x.extend ( [self.AnimalType(row[5])])
-                    self.x.extend ( [self.SexuponOutcome1(row[6])] )
-                    self.x.extend ( [self.SexuponOutcome2(row[6]) ])
-                    self.x.extend ( [self.AgeuponOutcome(row[7])] )
-                    self.x.extend ( [self.Breed(row[8]) ])
-                    self.x.extend ( [self.Color1(row[9])] )
-                    self.x.extend ( [self.Color2(row[9]) ] )
-                    '''
-
                     #criar matrix comum = array de 2 dimensoes
                     self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
  
                #endif
             #endfor 
         #endwith
-        
-        #self.X=np.array(x).reshape(len(x)/9,9) #criar o numpy part 2/2
-        #self.Printer(len(x)/9) #printar o numpy part
+
 
     #end__init__
     def NormalizarIdades(self,file):
@@ -110,9 +92,6 @@ class PrepareData:
             print(self.y[i]) #retorno_esperado #OutcomeType
             print(self.y2[i]) #retorno_esperado2 #OutcomeSubType
             print("\n")
-
-
-
 
 
 

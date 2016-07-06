@@ -14,26 +14,21 @@ from generate import Generate
 #========================= MAIN.EXEC =========================#
 
 
-##leo ricardo teste
-
 #test = "../data/shelter_animal/test.csv"
 #train = "../data/shelter_animal/train.csv"
-train = "microtrain.csv"
-
-
+train = "train.csv"
 
 
 data = PrepareData(train)
 
-#for line in data.x:
-	#tirar parenteses
-	#animal.csv
-	#print( line.split("[")[1].split("]")[1] )
-	#print(line)
+
+f = open('animal_train.csv', 'wb')
+for line in data.x:
+	f.write((str(line)).split("[")[1].split("]")[0] + "\n")
+
 
 print("Trantando dados gerados ......................... ")
+
 geracao = Generate(data.x,data.y)
 
-
-#geracao.train("animal_train.csv")
 geracao.predict_class(data.x,data.y,"animal_test.csv")

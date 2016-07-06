@@ -24,8 +24,8 @@ from numpy.random import multivariate_normal
 class Generate:
        
         def __init__(self,_x,_y):
-                print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
-
+                print("Iniciando funcao Generate .............. ")
+                #print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
 
         
         def random(self):
@@ -37,6 +37,7 @@ class Generate:
                         i=i+1                
         
 
+        """
         def train(self,train_file):
                 #treino de regressao ML
 
@@ -84,9 +85,9 @@ class Generate:
                         
                 #gera arquivo de saida       
                 pickle.dump( net, open( output_model_file, 'wb' ))
+        """
 
-
-
+        """
         def predict(self,test_file):
                 model_file = 'model.pkl'
                 output_predictions_file = 'saida_predictions.txt'
@@ -122,10 +123,14 @@ class Generate:
                 rmse = sqrt( mse )
 
                 print "testing RMSE:", rmse
-                np.savetxt( output_predictions_file, p, fmt = '%.6f' )
+                np.savetxt( output_predictions_file, p, fmt = '%.6f' ) 
+        """
 
+
+        #http://pybrain.org/docs/tutorial/fnn.html
 
         def ReadTrainFile(self,_x,_y):
+                print("Lendo matriz de treino .......")
                  #prepara um banco de dados com as proporcoes dos arquivos de entrada _x e _y
                 TrainData = ClassificationDataSet(len(_x[0]), 1, nb_classes=5)
 
@@ -139,7 +144,10 @@ class Generate:
 
                 return TrainData
 
+
+
         def ReadTestFile(self,test_file,features):
+                print("Lendo arquivo de teste ........")
                 TestData = ClassificationDataSet(features, 1, nb_classes=5)               
                 i=0
                 for line in open(test_file, 'r'):
@@ -151,86 +159,68 @@ class Generate:
 
 
         def predict_class(self,_x,_y,test_file):
+                print("Iniciando funcao predict_class() .............")
                 #estatistica
-                acertos =0
-                erros=0
+                #acertos =0
+                #erros=0
 
-                
                 #separa uma parte do treino para teste   
                 #testdata, traindata = TrainData.splitWithProportion( 0.1 )
 
                 traindata = self.ReadTrainFile(_x,_y)
                 testdata = self.ReadTestFile( test_file, len(_x[0]) )
 
+                print("convertendo arquivos .................")
+
                 traindata._convertToOneOfMany( )
                 testdata._convertToOneOfMany( )
 
-                """
+                '''
                 print "____________________________________________________________________________"
                 print "Number of training patterns: ", len(traindata)
                 print "Input and output dimensions: ", traindata.indim, traindata.outdim
                 print "First sample (input, target, class):"
                 print traindata['input'][0], traindata['target'][0], traindata['class'][0]
                 print "____________________________________________________________________________\n"
+                '''
 
-                """
+                print(" Criando rede de treinos .............")
 
                 fnn = buildNetwork( traindata.indim, 5, traindata.outdim, outclass=SoftmaxLayer )
                 trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
 
-                """
-                ticks = arange(-3.,6.,0.2)
-                X, Y = meshgrid(ticks, ticks)
+                print("Treinando .............")
 
-                # need column vectors in dataset, not arrays
-                griddata = ClassificationDataSet(2,1, nb_classes=3)
-                for i in xrange(X.size):
-                    griddata.addSample([X.ravel()[i],Y.ravel()[i]], [0])
-                griddata._convertToOneOfMany()  # this is still needed to make the fnn feel comfy
-                
-                """
                 for i in range(2):
                         trainer.trainEpochs( 1 )
 
-                for i in xrange(0,len(testdata)):
-                        '''
-                        a=int(testdata['target'][i][0])
-                        b=int(testdata['target'][i][1])
-                        c=int(testdata['target'][i][2])
-                        d=int(testdata['target'][i][3])
-                        e=int(testdata['target'][i][4])
+                print ("Criando arquivo de saida ......................\n")
+                f = open('animal_output.csv', 'wb')
+                f.write( str(fnn.activateOnDataset(testdata)) )
+                
+                
+                #for i in xrange(0,len(testdata)):
+                        
+                        #print ( fnn.activate(testdata[i]))
+                        #if ( _y[i] != testdata['class'][i] ):
+                        #        erros+=1
+                        #else:
+                        #        acertos+=1
 
-
-                        res=-1
-                        if (a==1):
-                        res+=1
-                        elif (b==1):
-                        res+=2
-                        elif (c==1):
-                        res+=3
-                        elif (d==1):
-                        res+=4
-                        elif (e==1):
-                        res+=5
-                        '''
-
-                        if ( _y[i] != testdata['class'][i] ):
-                                erros+=1
-                        else:
-                                acertos+=1
-
-                        print("Exemplo - ", i)
-                        print testdata['target'][i]
+                        #print("Exemplo - ", i)
+                        #print testdata['target'][i]
                         #print ("classe: {}".format(res) )
-                        print ("saida:  {}".format(int(testdata['class'][i])) ) 
-                        print ("____________________________" )
+                        #print ("saida:  {}".format(int(testdata['class'][i])) ) 
+                        
 
-                print("acertos:  " , acertos)
-                print("erros:    ", erros)
 
-                if ( acertos+erros == len(_x) ):
-                        print("Teste Completo")
-                else:
-                        print("****** Teste Falho")
-                        print(len(_x))
+
+                #print("acertos:  " , acertos)
+                #print("erros:    ", erros)
+
+                #if ( acertos+erros == len(_x) ):
+                #        print("Teste Completo")
+                #else:
+                #        print("****** Teste Falho")
+                #        print(len(_x))
                 
