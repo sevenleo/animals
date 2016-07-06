@@ -196,10 +196,10 @@ class Generate:
                 print("Lendo arquivo de teste e classificando ..........")
                 output = open('animal_output.csv', 'wb')
                 i=1
-                print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
+                output.write("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer\n")
                 for line in open(test_file, 'r'):
                         x = ast.literal_eval(line)
-                        #output.write( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
+                        output.write( "{},{},{},{},{},{} \n".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
                         #print( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
                         i=i+1   
                         
