@@ -112,9 +112,9 @@ class PrepareData:
     def Name(self,value):
     	
         if value is '':
-            return 0.0
+            return 0
         else:
-            return 1.0
+            return 1
 
     def Date(self,value):
         date = "".join(value)
@@ -127,15 +127,15 @@ class PrepareData:
 
         if month==12:
             if (day==25 or day==31):
-                return 0.0
+                return 0
         elif month==5:
             if (day<5):
-                return 0.0
+                return 0
         elif month==12:
             if (day==25 or day==31):
-                return 0.0
+                return 0
         else:
-            return 1.0
+            return 1
 
 
     #ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer
@@ -148,13 +148,13 @@ class PrepareData:
             'Transfer': 4
         }
 
-        return float (options.get(value,0)/4)
+        return options.get(value,0)
 
 
     def AnimalType(self, value):
         options = {
-            'Dog': 0.0,
-            'Cat': 1.0
+            'Dog': 0,
+            'Cat': 1
         }
         #print ( value)
         return options.get(value,0)
@@ -176,10 +176,10 @@ class PrepareData:
 
         if value.endswith("Male"):
             #print ( "Male" )
-            return 0.0
+            return 0
         else:
             #print ( "Female" )
-            return 1.0
+            return 1
 
 
     def AgeuponOutcome(self, value, min, max):
@@ -210,10 +210,10 @@ class PrepareData:
     def Breed (self, value):
         if value.endswith("Mix"):
             #print ( "Mix" )
-            return 0.0
+            return 0
         else:
             #print ( "Pure" )
-            return 1.0
+            return 1
 
 
     def Color1 (self, value):
@@ -240,10 +240,10 @@ class PrepareData:
         #solucao1:
 
         if value.split("/")[0] == value.split("/")[-1]:
-            return 0.0
+            return 0
         else:
             #return value.split("/")[-1]
-            return 1.0
+            return 1
 
 
 
