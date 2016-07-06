@@ -202,7 +202,8 @@ class PrepareData:
 
             #saida de 0 a 1            
             number = (float(number) - float(min))/float(max)
-            return float("{0:.3f}".format(number))
+            return number
+            #return float("{0:.3f}".format(number))
        
 
 
