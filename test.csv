@@ -10886,117 +10886,6 @@ ID,Name,DateTime,AnimalType,SexuponOutcome,AgeuponOutcome,Breed,Color
 10885,Zach,2015-10-28 14:33:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Brown Tabby
 10886,Nita,2013-12-17 11:48:00,Dog,Spayed Female,4 years,Labrador Retriever,Yellow
 10887,Lacey,2014-06-01 13:06:00,Dog,Intact Female,1 year,Cavalier Span Mix,Black/Tan
-10888,Gracie,2014-04-03 14:21:00,Dog,Spayed Female,11 months,Bull Terrier Mix,Brown Brindle/White
-10889,Bud,2016-02-09 16:31:00,Cat,Neutered Male,1 year,Domestic Shorthair Mix,Brown Tabby/White
-10890,Teemo,2015-09-30 14:17:00,Dog,Neutered Male,1 year,Jack Russell Terrier/Border Collie,White/Tan
-10891,,2014-12-05 09:00:00,Cat,Intact Male,1 year,Domestic Shorthair Mix,Brown Tabby
-10892,Murphy,2014-04-10 10:12:00,Dog,Intact Male,12 years,Siberian Husky/Great Pyrenees,Black Smoke
-10893,Tippy,2014-08-22 15:55:00,Dog,Neutered Male,8 months,Rat Terrier Mix,White/Tan
-10894,Wendy Davis,2015-01-24 16:18:00,Cat,Spayed Female,6 months,Domestic Shorthair Mix,Cream Tabby
-10895,Gabby,2015-10-19 18:41:00,Dog,Spayed Female,9 years,Brittany,White/Orange
-10896,Toby,2014-07-27 15:18:00,Dog,Neutered Male,3 years,Chihuahua Shorthair Mix,Tan
-10897,Minnie,2014-08-12 13:42:00,Cat,Spayed Female,2 years,Domestic Medium Hair Mix,Torbie/White
-10898,Tip,2016-01-10 19:14:00,Dog,Intact Male,2 years,Labrador Retriever Mix,Black/White
-10899,Hunter,2015-07-06 19:08:00,Dog,Spayed Female,2 months,Anatol Shepherd Mix,Tan/White
-10900,Thaktar,2014-02-20 18:55:00,Cat,Neutered Male,12 years,Siamese Mix,Lynx Point
-10901,Oso,2015-06-24 17:34:00,Dog,Neutered Male,1 year,Chihuahua Shorthair Mix,Tan/White
-10902,Willow,2013-11-13 18:28:00,Cat,Neutered Male,6 months,Domestic Medium Hair Mix,Blue Tabby/White
-10903,Zeke,2015-05-10 19:05:00,Dog,Neutered Male,2 months,Black Mouth Cur Mix,Tan/White
-10904,,2014-06-24 19:14:00,Cat,Unknown,1 week,Domestic Shorthair Mix,Brown Tabby
-10905,Marley,2014-12-05 17:47:00,Dog,Neutered Male,6 months,Labrador Retriever Mix,Black
-10906,,2013-11-05 17:43:00,Dog,Intact Female,10 years,Dachshund/Chihuahua Shorthair,Black
-10907,Pogo,2015-07-21 14:58:00,Dog,Neutered Male,6 months,Chihuahua Shorthair Mix,Black
-10908,Sam,2015-07-17 14:20:00,Cat,Neutered Male,2 years,Siamese Mix,Seal Point
-10909,,2015-07-22 18:40:00,Dog,Spayed Female,5 months,Vizsla/German Shepherd,Brown
-10910,,2015-07-09 00:00:00,Dog,Intact Male,1 month,Australian Cattle Dog Mix,Blue Merle
-10911,Elton,2014-07-08 14:48:00,Dog,Neutered Male,5 years,Chow Chow/American Eskimo,White/Cream
-10912,Alex,2015-08-02 18:30:00,Dog,Neutered Male,8 months,Great Pyrenees/Labrador Retriever,Cream
-10913,Bullet,2014-06-10 16:19:00,Dog,Neutered Male,2 years,Labrador Retriever/Chow Chow,Gold/Black
-10914,,2015-05-06 16:31:00,Cat,Unknown,2 weeks,Domestic Shorthair Mix,Black
-10915,,2015-02-07 09:00:00,Cat,Intact Female,1 year,Domestic Longhair Mix,Brown Tabby/White
-10916,Eli,2014-08-10 12:20:00,Dog,Intact Male,2 years,Catahoula/Australian Cattle Dog,Black
-10917,Fielding,2015-04-11 12:47:00,Dog,Neutered Male,4 years,Pointer Mix,Red/White
-10918,Hanna,2015-03-27 11:15:00,Dog,Spayed Female,11 years,Basset Hound,Tricolor
-10919,Ganja,2015-07-30 15:56:00,Dog,Spayed Female,6 months,Pit Bull/Labrador Retriever,Black/White
-10920,Hambone,2015-03-10 16:28:00,Dog,Neutered Male,4 years,Rat Terrier/Chihuahua Shorthair,Tricolor
-10921,Smoky,2015-10-16 17:44:00,Dog,Neutered Male,4 years,Siberian Husky Mix,Black/White
-10922,,2015-08-14 18:09:00,Dog,Intact Female,1 month,Chihuahua Shorthair Mix,Buff
-10923,,2015-04-06 17:46:00,Dog,Neutered Male,2 years,Pit Bull Mix,Brown/White
-10924,,2015-07-16 11:09:00,Cat,Neutered Male,3 months,Domestic Shorthair Mix,Brown Tabby
-10925,Sabrina,2014-07-06 16:46:00,Cat,Spayed Female,2 years,Domestic Shorthair Mix,Black
-10926,Trey,2014-11-29 17:46:00,Dog,Neutered Male,1 year,Rottweiler Mix,Black/Red
-10927,August,2013-10-13 18:05:00,Dog,Neutered Male,4 months,Pit Bull Mix,Tricolor
-10928,Elton,2015-07-18 18:50:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Brown Tabby
-10929,Beau,2014-11-28 15:57:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Orange Tabby/White
-10930,Loretta,2014-09-13 19:03:00,Dog,Spayed Female,7 years,Miniature Schnauzer Mix,Black/Brown
-10931,,2014-07-27 12:07:00,Dog,Intact Male,3 weeks,Pit Bull Mix,Tan/White
-10932,Luke,2014-01-06 11:15:00,Dog,Intact Male,5 years,Labrador Retriever,Yellow
-10933,Snow,2015-07-13 18:29:00,Cat,Neutered Male,2 months,Snowshoe Mix,Seal Point/White
-10934,Muffin,2014-05-07 14:52:00,Cat,Spayed Female,10 months,Domestic Shorthair Mix,Torbie
-10935,Murphy,2014-04-20 19:09:00,Dog,Neutered Male,1 year,Dachshund Wirehair/Chihuahua Shorthair,Tan
-10936,Pierre,2015-11-22 18:16:00,Dog,Neutered Male,2 years,Jack Russell Terrier Mix,White/Brown
-10937,Happy,2014-05-26 14:46:00,Cat,Spayed Female,7 months,Domestic Shorthair Mix,Brown Tabby/White
-10938,Rocky,2015-06-05 16:18:00,Dog,Neutered Male,5 years,German Shepherd/Labrador Retriever,Brown/Black
-10939,Chloe,2014-08-14 13:31:00,Dog,Spayed Female,15 years,Boston Terrier,Black/White
-10940,Argos,2015-01-16 18:43:00,Dog,Spayed Female,7 years,Pit Bull Mix,Sable/Silver
-10941,,2015-06-24 17:47:00,Cat,Unknown,2 weeks,Domestic Shorthair Mix,Black/White
-10942,Porky,2015-05-31 11:51:00,Dog,Intact Male,15 years,Pit Bull Mix,Brown/White
-10943,Cricket,2015-09-29 12:00:00,Dog,Spayed Female,2 years,Chihuahua Shorthair Mix,Sable/Brown
-10944,Kamilla,2014-05-01 12:34:00,Dog,Intact Female,2 years,Chihuahua Shorthair Mix,Tricolor
-10945,Princess,2015-05-01 12:44:00,Dog,Spayed Female,5 years,Pit Bull,Blue/White
-10946,Goose,2014-12-19 15:33:00,Cat,Spayed Female,4 years,Domestic Longhair Mix,Tortie/Black
-10947,Moby,2014-10-28 15:35:00,Cat,Neutered Male,4 years,Domestic Shorthair Mix,Blue/White
-10948,Cameron,2015-02-24 17:00:00,Dog,Neutered Male,6 years,Pomeranian Mix,Brown/Tan
-10949,Killer,2014-01-15 18:04:00,Dog,Intact Male,2 years,German Shepherd Mix,Tan/Black
-10950,Duke,2013-11-22 15:36:00,Dog,Intact Male,3 years,Pit Bull Mix,Brown
-10951,Tiger,2014-12-15 08:36:00,Dog,Neutered Male,8 years,Dutch Shepherd,Yellow Brindle/White
-10952,Phantom,2014-10-19 12:04:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Black
-10953,Kylee,2015-11-30 17:33:00,Dog,Spayed Female,4 years,Plott Hound,Brown Brindle
-10954,,2014-10-22 16:18:00,Dog,Intact Female,2 years,Toy Poodle Mix,Black
-10955,Alba,2015-09-26 11:28:00,Dog,Spayed Female,11 years,Queensland Heeler Mix,Blue Merle/Tan
-10956,Abby,2013-12-31 15:35:00,Dog,Spayed Female,1 year,Labrador Retriever Mix,Tan
-10957,Ginger,2015-10-05 18:11:00,Dog,Spayed Female,2 years,American Foxhound Mix,Tricolor
-10958,Zsa Zsa,2014-09-16 11:30:00,Cat,Spayed Female,5 years,Maine Coon Mix,Tortie
-10959,Samwise,2015-08-29 14:16:00,Cat,Intact Male,4 weeks,Domestic Shorthair Mix,Brown Tabby
-10960,Freya,2016-02-07 13:49:00,Dog,Spayed Female,1 year,Black Mouth Cur Mix,Tan/Black
-10961,Mindy,2013-10-11 11:55:00,Cat,Spayed Female,2 months,Domestic Shorthair Mix,Blue Tabby/White
-10962,,2015-10-30 09:00:00,Cat,Intact Female,1 year,Domestic Shorthair Mix,Brown Tabby
-10963,,2014-07-04 18:42:00,Dog,Intact Female,4 months,Labrador Retriever/Australian Kelpie,Brown
-10964,,2014-04-27 19:00:00,Cat,Neutered Male,3 months,Domestic Shorthair Mix,Brown Tabby
-10965,Ninja,2015-07-02 16:34:00,Dog,Neutered Male,3 years,Jack Russell Terrier Mix,White/Blue Merle
-10966,,2015-04-21 14:37:00,Cat,Unknown,2 weeks,Domestic Medium Hair Mix,Black
-10967,Mr. Softie,2015-09-01 17:51:00,Cat,Neutered Male,7 years,Domestic Shorthair Mix,Blue
-10968,Larry,2013-11-09 12:11:00,Cat,Neutered Male,4 months,Domestic Shorthair Mix,Brown Tabby
-10969,Stardust,2014-02-14 18:43:00,Dog,Neutered Male,8 years,Pomeranian Mix,Black
-10970,Ziggy,2015-02-15 16:32:00,Dog,Intact Female,1 year,Beagle Mix,White/Brown
-10971,,2014-03-20 16:31:00,Cat,Intact Female,4 months,Manx Mix,Black/White
-10972,Selena,2015-09-06 15:41:00,Cat,Spayed Female,2 months,Domestic Shorthair Mix,Blue Tabby/Blue Cream
-10973,Emily,2013-11-19 13:53:00,Dog,Spayed Female,10 months,Dachshund Mix,Red/White
-10974,Fluffy,2014-11-30 16:57:00,Cat,Neutered Male,5 years,Domestic Medium Hair Mix,Blue Tabby
-10975,Diego,2014-04-16 12:51:00,Dog,Neutered Male,3 years,Cairn Terrier/Chihuahua Longhair,Brown Brindle
-10976,Cookie,2013-11-04 17:31:00,Dog,Intact Female,3 years,Catahoula Mix,Tan/Black
-10977,Marissa,2014-02-08 16:04:00,Dog,Spayed Female,1 year,German Shepherd Mix,Black/Tan
-10978,,2014-12-04 07:03:00,Dog,Intact Female,4 days,Labrador Retriever Mix,Red
-10979,Jesse,2014-02-17 17:37:00,Dog,Neutered Male,2 months,German Shepherd Mix,Brown/Black
-10980,,2015-06-21 17:49:00,Dog,Unknown,4 years,Chihuahua Shorthair Mix,White
-10981,Panda,2015-10-12 13:18:00,Dog,Neutered Male,5 years,Shih Tzu Mix,Black/White
-10982,Roscoe,2014-06-06 18:00:00,Dog,Neutered Male,2 months,Pit Bull Mix,Black/White
-10983,,2015-12-21 13:29:00,Dog,Neutered Male,2 months,Labrador Retriever Mix,Sable/White
-10984,Pepper,2013-10-12 14:46:00,Dog,Neutered Male,2 years,English Pointer/Labrador Retriever,Brown Brindle/White
-10985,Tiger,2014-01-27 13:51:00,Dog,Neutered Male,8 years,Pit Bull Mix,Blue/White
-10986,Bebe,2015-02-12 08:38:00,Dog,Spayed Female,7 years,Miniature Poodle Mix,White
-10987,,2014-07-13 09:00:00,Cat,Intact Female,1 year,Domestic Medium Hair Mix,Brown Tabby/White
-10988,Jinx,2015-03-16 18:04:00,Dog,Neutered Male,11 years,Australian Shepherd Mix,Black/White
-10989,Polly,2014-01-27 17:55:00,Cat,Spayed Female,4 months,Domestic Shorthair Mix,Blue
-10990,Mila,2015-06-20 18:23:00,Cat,Spayed Female,11 months,Domestic Shorthair Mix,Brown Tabby
-10991,Jasmine,2014-04-06 13:30:00,Cat,Spayed Female,6 years,Snowshoe Mix,Lilac Point
-10992,Barky,2015-11-25 16:49:00,Dog,Neutered Male,1 year,American Pit Bull Terrier Mix,White/Black
-10993,Sadie,2016-02-06 14:26:00,Dog,Spayed Female,3 years,Border Collie Mix,Tan/White
-10994,,2015-01-09 09:00:00,Cat,Unknown,8 months,Domestic Shorthair Mix,White/Black
-10995,Whisper,2014-10-19 12:21:00,Dog,Intact Female,1 year,Cocker Spaniel Mix,Black/Tan
-10996,Sundae,2014-06-21 17:16:00,Dog,Spayed Female,2 years,Chihuahua Shorthair Mix,Tan/White
-10997,Apple,2014-06-09 12:53:00,Cat,Intact Male,1 month,Domestic Shorthair Mix,Blue Tabby
-10998,Silvermist,2014-04-17 15:04:00,Cat,Spayed Female,7 months,Domestic Shorthair Mix,Brown Tabby
 10999,Amelia,2014-08-09 16:15:00,Cat,Intact Female,2 months,Domestic Shorthair Mix,Brown Tabby
 11000,,2016-02-15 00:00:00,Dog,Intact Female,2 weeks,Labrador Retriever Mix,Black
 11001,Laurena,2015-12-04 11:42:00,Cat,Spayed Female,4 months,Domestic Medium Hair Mix,Blue Tabby/White
@@ -11455,3 +11344,114 @@ ID,Name,DateTime,AnimalType,SexuponOutcome,AgeuponOutcome,Breed,Color
 11454,,2014-09-29 09:00:00,Cat,Intact Female,1 year,Domestic Shorthair Mix,Calico
 11455,Rambo,2015-09-05 17:16:00,Dog,Neutered Male,6 years,German Shepherd Mix,Black/Tan
 11456,Gusto,2014-07-12 18:40:00,Dog,Intact Male,4 years,Labrador Retriever,Cream
+10888,Gracie,2014-04-03 14:21:00,Dog,Spayed Female,11 months,Bull Terrier Mix,Brown Brindle/White
+10889,Bud,2016-02-09 16:31:00,Cat,Neutered Male,1 year,Domestic Shorthair Mix,Brown Tabby/White
+10890,Teemo,2015-09-30 14:17:00,Dog,Neutered Male,1 year,Jack Russell Terrier/Border Collie,White/Tan
+10891,,2014-12-05 09:00:00,Cat,Intact Male,1 year,Domestic Shorthair Mix,Brown Tabby
+10892,Murphy,2014-04-10 10:12:00,Dog,Intact Male,12 years,Siberian Husky/Great Pyrenees,Black Smoke
+10893,Tippy,2014-08-22 15:55:00,Dog,Neutered Male,8 months,Rat Terrier Mix,White/Tan
+10894,Wendy Davis,2015-01-24 16:18:00,Cat,Spayed Female,6 months,Domestic Shorthair Mix,Cream Tabby
+10895,Gabby,2015-10-19 18:41:00,Dog,Spayed Female,9 years,Brittany,White/Orange
+10896,Toby,2014-07-27 15:18:00,Dog,Neutered Male,3 years,Chihuahua Shorthair Mix,Tan
+10897,Minnie,2014-08-12 13:42:00,Cat,Spayed Female,2 years,Domestic Medium Hair Mix,Torbie/White
+10898,Tip,2016-01-10 19:14:00,Dog,Intact Male,2 years,Labrador Retriever Mix,Black/White
+10899,Hunter,2015-07-06 19:08:00,Dog,Spayed Female,2 months,Anatol Shepherd Mix,Tan/White
+10900,Thaktar,2014-02-20 18:55:00,Cat,Neutered Male,12 years,Siamese Mix,Lynx Point
+10901,Oso,2015-06-24 17:34:00,Dog,Neutered Male,1 year,Chihuahua Shorthair Mix,Tan/White
+10902,Willow,2013-11-13 18:28:00,Cat,Neutered Male,6 months,Domestic Medium Hair Mix,Blue Tabby/White
+10903,Zeke,2015-05-10 19:05:00,Dog,Neutered Male,2 months,Black Mouth Cur Mix,Tan/White
+10904,,2014-06-24 19:14:00,Cat,Unknown,1 week,Domestic Shorthair Mix,Brown Tabby
+10905,Marley,2014-12-05 17:47:00,Dog,Neutered Male,6 months,Labrador Retriever Mix,Black
+10906,,2013-11-05 17:43:00,Dog,Intact Female,10 years,Dachshund/Chihuahua Shorthair,Black
+10907,Pogo,2015-07-21 14:58:00,Dog,Neutered Male,6 months,Chihuahua Shorthair Mix,Black
+10908,Sam,2015-07-17 14:20:00,Cat,Neutered Male,2 years,Siamese Mix,Seal Point
+10909,,2015-07-22 18:40:00,Dog,Spayed Female,5 months,Vizsla/German Shepherd,Brown
+10910,,2015-07-09 00:00:00,Dog,Intact Male,1 month,Australian Cattle Dog Mix,Blue Merle
+10911,Elton,2014-07-08 14:48:00,Dog,Neutered Male,5 years,Chow Chow/American Eskimo,White/Cream
+10912,Alex,2015-08-02 18:30:00,Dog,Neutered Male,8 months,Great Pyrenees/Labrador Retriever,Cream
+10913,Bullet,2014-06-10 16:19:00,Dog,Neutered Male,2 years,Labrador Retriever/Chow Chow,Gold/Black
+10914,,2015-05-06 16:31:00,Cat,Unknown,2 weeks,Domestic Shorthair Mix,Black
+10915,,2015-02-07 09:00:00,Cat,Intact Female,1 year,Domestic Longhair Mix,Brown Tabby/White
+10916,Eli,2014-08-10 12:20:00,Dog,Intact Male,2 years,Catahoula/Australian Cattle Dog,Black
+10917,Fielding,2015-04-11 12:47:00,Dog,Neutered Male,4 years,Pointer Mix,Red/White
+10918,Hanna,2015-03-27 11:15:00,Dog,Spayed Female,11 years,Basset Hound,Tricolor
+10919,Ganja,2015-07-30 15:56:00,Dog,Spayed Female,6 months,Pit Bull/Labrador Retriever,Black/White
+10920,Hambone,2015-03-10 16:28:00,Dog,Neutered Male,4 years,Rat Terrier/Chihuahua Shorthair,Tricolor
+10921,Smoky,2015-10-16 17:44:00,Dog,Neutered Male,4 years,Siberian Husky Mix,Black/White
+10922,,2015-08-14 18:09:00,Dog,Intact Female,1 month,Chihuahua Shorthair Mix,Buff
+10923,,2015-04-06 17:46:00,Dog,Neutered Male,2 years,Pit Bull Mix,Brown/White
+10924,,2015-07-16 11:09:00,Cat,Neutered Male,3 months,Domestic Shorthair Mix,Brown Tabby
+10925,Sabrina,2014-07-06 16:46:00,Cat,Spayed Female,2 years,Domestic Shorthair Mix,Black
+10926,Trey,2014-11-29 17:46:00,Dog,Neutered Male,1 year,Rottweiler Mix,Black/Red
+10927,August,2013-10-13 18:05:00,Dog,Neutered Male,4 months,Pit Bull Mix,Tricolor
+10928,Elton,2015-07-18 18:50:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Brown Tabby
+10929,Beau,2014-11-28 15:57:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Orange Tabby/White
+10930,Loretta,2014-09-13 19:03:00,Dog,Spayed Female,7 years,Miniature Schnauzer Mix,Black/Brown
+10931,,2014-07-27 12:07:00,Dog,Intact Male,3 weeks,Pit Bull Mix,Tan/White
+10932,Luke,2014-01-06 11:15:00,Dog,Intact Male,5 years,Labrador Retriever,Yellow
+10933,Snow,2015-07-13 18:29:00,Cat,Neutered Male,2 months,Snowshoe Mix,Seal Point/White
+10934,Muffin,2014-05-07 14:52:00,Cat,Spayed Female,10 months,Domestic Shorthair Mix,Torbie
+10935,Murphy,2014-04-20 19:09:00,Dog,Neutered Male,1 year,Dachshund Wirehair/Chihuahua Shorthair,Tan
+10936,Pierre,2015-11-22 18:16:00,Dog,Neutered Male,2 years,Jack Russell Terrier Mix,White/Brown
+10937,Happy,2014-05-26 14:46:00,Cat,Spayed Female,7 months,Domestic Shorthair Mix,Brown Tabby/White
+10938,Rocky,2015-06-05 16:18:00,Dog,Neutered Male,5 years,German Shepherd/Labrador Retriever,Brown/Black
+10939,Chloe,2014-08-14 13:31:00,Dog,Spayed Female,15 years,Boston Terrier,Black/White
+10940,Argos,2015-01-16 18:43:00,Dog,Spayed Female,7 years,Pit Bull Mix,Sable/Silver
+10941,,2015-06-24 17:47:00,Cat,Unknown,2 weeks,Domestic Shorthair Mix,Black/White
+10942,Porky,2015-05-31 11:51:00,Dog,Intact Male,15 years,Pit Bull Mix,Brown/White
+10943,Cricket,2015-09-29 12:00:00,Dog,Spayed Female,2 years,Chihuahua Shorthair Mix,Sable/Brown
+10944,Kamilla,2014-05-01 12:34:00,Dog,Intact Female,2 years,Chihuahua Shorthair Mix,Tricolor
+10945,Princess,2015-05-01 12:44:00,Dog,Spayed Female,5 years,Pit Bull,Blue/White
+10946,Goose,2014-12-19 15:33:00,Cat,Spayed Female,4 years,Domestic Longhair Mix,Tortie/Black
+10947,Moby,2014-10-28 15:35:00,Cat,Neutered Male,4 years,Domestic Shorthair Mix,Blue/White
+10948,Cameron,2015-02-24 17:00:00,Dog,Neutered Male,6 years,Pomeranian Mix,Brown/Tan
+10949,Killer,2014-01-15 18:04:00,Dog,Intact Male,2 years,German Shepherd Mix,Tan/Black
+10950,Duke,2013-11-22 15:36:00,Dog,Intact Male,3 years,Pit Bull Mix,Brown
+10951,Tiger,2014-12-15 08:36:00,Dog,Neutered Male,8 years,Dutch Shepherd,Yellow Brindle/White
+10952,Phantom,2014-10-19 12:04:00,Cat,Neutered Male,2 months,Domestic Shorthair Mix,Black
+10953,Kylee,2015-11-30 17:33:00,Dog,Spayed Female,4 years,Plott Hound,Brown Brindle
+10954,,2014-10-22 16:18:00,Dog,Intact Female,2 years,Toy Poodle Mix,Black
+10955,Alba,2015-09-26 11:28:00,Dog,Spayed Female,11 years,Queensland Heeler Mix,Blue Merle/Tan
+10956,Abby,2013-12-31 15:35:00,Dog,Spayed Female,1 year,Labrador Retriever Mix,Tan
+10957,Ginger,2015-10-05 18:11:00,Dog,Spayed Female,2 years,American Foxhound Mix,Tricolor
+10958,Zsa Zsa,2014-09-16 11:30:00,Cat,Spayed Female,5 years,Maine Coon Mix,Tortie
+10959,Samwise,2015-08-29 14:16:00,Cat,Intact Male,4 weeks,Domestic Shorthair Mix,Brown Tabby
+10960,Freya,2016-02-07 13:49:00,Dog,Spayed Female,1 year,Black Mouth Cur Mix,Tan/Black
+10961,Mindy,2013-10-11 11:55:00,Cat,Spayed Female,2 months,Domestic Shorthair Mix,Blue Tabby/White
+10962,,2015-10-30 09:00:00,Cat,Intact Female,1 year,Domestic Shorthair Mix,Brown Tabby
+10963,,2014-07-04 18:42:00,Dog,Intact Female,4 months,Labrador Retriever/Australian Kelpie,Brown
+10964,,2014-04-27 19:00:00,Cat,Neutered Male,3 months,Domestic Shorthair Mix,Brown Tabby
+10965,Ninja,2015-07-02 16:34:00,Dog,Neutered Male,3 years,Jack Russell Terrier Mix,White/Blue Merle
+10966,,2015-04-21 14:37:00,Cat,Unknown,2 weeks,Domestic Medium Hair Mix,Black
+10967,Mr. Softie,2015-09-01 17:51:00,Cat,Neutered Male,7 years,Domestic Shorthair Mix,Blue
+10968,Larry,2013-11-09 12:11:00,Cat,Neutered Male,4 months,Domestic Shorthair Mix,Brown Tabby
+10969,Stardust,2014-02-14 18:43:00,Dog,Neutered Male,8 years,Pomeranian Mix,Black
+10970,Ziggy,2015-02-15 16:32:00,Dog,Intact Female,1 year,Beagle Mix,White/Brown
+10971,,2014-03-20 16:31:00,Cat,Intact Female,4 months,Manx Mix,Black/White
+10972,Selena,2015-09-06 15:41:00,Cat,Spayed Female,2 months,Domestic Shorthair Mix,Blue Tabby/Blue Cream
+10973,Emily,2013-11-19 13:53:00,Dog,Spayed Female,10 months,Dachshund Mix,Red/White
+10974,Fluffy,2014-11-30 16:57:00,Cat,Neutered Male,5 years,Domestic Medium Hair Mix,Blue Tabby
+10975,Diego,2014-04-16 12:51:00,Dog,Neutered Male,3 years,Cairn Terrier/Chihuahua Longhair,Brown Brindle
+10976,Cookie,2013-11-04 17:31:00,Dog,Intact Female,3 years,Catahoula Mix,Tan/Black
+10977,Marissa,2014-02-08 16:04:00,Dog,Spayed Female,1 year,German Shepherd Mix,Black/Tan
+10978,,2014-12-04 07:03:00,Dog,Intact Female,4 days,Labrador Retriever Mix,Red
+10979,Jesse,2014-02-17 17:37:00,Dog,Neutered Male,2 months,German Shepherd Mix,Brown/Black
+10980,,2015-06-21 17:49:00,Dog,Unknown,4 years,Chihuahua Shorthair Mix,White
+10981,Panda,2015-10-12 13:18:00,Dog,Neutered Male,5 years,Shih Tzu Mix,Black/White
+10982,Roscoe,2014-06-06 18:00:00,Dog,Neutered Male,2 months,Pit Bull Mix,Black/White
+10983,,2015-12-21 13:29:00,Dog,Neutered Male,2 months,Labrador Retriever Mix,Sable/White
+10984,Pepper,2013-10-12 14:46:00,Dog,Neutered Male,2 years,English Pointer/Labrador Retriever,Brown Brindle/White
+10985,Tiger,2014-01-27 13:51:00,Dog,Neutered Male,8 years,Pit Bull Mix,Blue/White
+10986,Bebe,2015-02-12 08:38:00,Dog,Spayed Female,7 years,Miniature Poodle Mix,White
+10987,,2014-07-13 09:00:00,Cat,Intact Female,1 year,Domestic Medium Hair Mix,Brown Tabby/White
+10988,Jinx,2015-03-16 18:04:00,Dog,Neutered Male,11 years,Australian Shepherd Mix,Black/White
+10989,Polly,2014-01-27 17:55:00,Cat,Spayed Female,4 months,Domestic Shorthair Mix,Blue
+10990,Mila,2015-06-20 18:23:00,Cat,Spayed Female,11 months,Domestic Shorthair Mix,Brown Tabby
+10991,Jasmine,2014-04-06 13:30:00,Cat,Spayed Female,6 years,Snowshoe Mix,Lilac Point
+10992,Barky,2015-11-25 16:49:00,Dog,Neutered Male,1 year,American Pit Bull Terrier Mix,White/Black
+10993,Sadie,2016-02-06 14:26:00,Dog,Spayed Female,3 years,Border Collie Mix,Tan/White
+10994,,2015-01-09 09:00:00,Cat,Unknown,8 months,Domestic Shorthair Mix,White/Black
+10995,Whisper,2014-10-19 12:21:00,Dog,Intact Female,1 year,Cocker Spaniel Mix,Black/Tan
+10996,Sundae,2014-06-21 17:16:00,Dog,Spayed Female,2 years,Chihuahua Shorthair Mix,Tan/White
+10997,Apple,2014-06-09 12:53:00,Cat,Intact Male,1 month,Domestic Shorthair Mix,Blue Tabby
+10998,Silvermist,2014-04-17 15:04:00,Cat,Spayed Female,7 months,Domestic Shorthair Mix,Brown Tabby

@@ -25,13 +25,14 @@ data = PrepareData(train)
 f = open('animal_train.csv', 'wb')
 for line in data.x:
 	f.write((str(line)).split("[")[1].split("]")[0] + "\n")
-
+f.close()
 
 print("Gerando matrix de teste ......................... ")
-f = open('animal_test.csv', 'wb')
+t = open('animal_test.csv', 'wb')
 for line in data.PrepareTestFile(test):
 	#f.write((str(line)).split("[")[1].split("]")[0] + "\n")
-	f.write(str(line) + "\n")
+	t.write(str(line) + "\n")
+t.close()
 
 
 

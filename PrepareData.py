@@ -112,9 +112,9 @@ class PrepareData:
     def Name(self,value):
     	
         if value is '':
-            return 0
+            return 0.0
         else:
-            return 1
+            return 1.0
 
     def Date(self,value):
         date = "".join(value)
@@ -127,15 +127,15 @@ class PrepareData:
 
         if month==12:
             if (day==25 or day==31):
-                return 0
+                return 0.0
         elif month==5:
             if (day<5):
-                return 0
+                return 0.0
         elif month==12:
             if (day==25 or day==31):
-                return 0
+                return 0.0
         else:
-            return 1
+            return 1.0
 
 
     def OutcomeType(self, value):
@@ -147,16 +147,16 @@ class PrepareData:
             'Died': 4
         }
 
-        return options.get(value,-1)
+        return float (options.get(value,0)/4)
 
 
     def AnimalType(self, value):
         options = {
-            'Dog': 0,
-            'Cat': 1
+            'Dog': 0.0,
+            'Cat': 1.0
         }
         #print ( value)
-        return options.get(value,-1)
+        return options.get(value,0)
 
 
     def SexuponOutcome1(self, value):
@@ -168,23 +168,23 @@ class PrepareData:
         }
         
         #print ( value.split(" ")[0] )
-        return options.get(value.split(" ")[0],0)
+        return float (options.get(value.split(" ")[0],0)/2)
 
 
     def SexuponOutcome2(self, value):
 
         if value.endswith("Male"):
             #print ( "Male" )
-            return 0
+            return 0.0
         else:
             #print ( "Female" )
-            return 1
+            return 1.0
 
 
     def AgeuponOutcome(self, value, min, max):
         
         if value is '': 
-            return -1
+            return 0.5
         else:
             number = value.split(" ")[0]
             string = value.split(" ")[-1]
@@ -200,7 +200,8 @@ class PrepareData:
             
 
             #saida de 0 a 1            
-            return ((float(number) - float(min))/float(max))
+            number = (float(number) - float(min))/float(max)
+            return float("{0:.3f}".format(number))
        
 
 
@@ -208,10 +209,10 @@ class PrepareData:
     def Breed (self, value):
         if value.endswith("Mix"):
             #print ( "Mix" )
-            return 0
+            return 0.0
         else:
             #print ( "Pure" )
-            return 1
+            return 1.0
 
 
     def Color1 (self, value):
@@ -229,8 +230,7 @@ class PrepareData:
             'Tricolor': 8,
             'White': 9
         }
-        return options.get( value.split("/")[0], -1)
-
+        return float (options.get( value.split("/")[0], 0)/10.0)
 
     def Color2 (self, value):
         #print ( value.split("/")[1:] )
@@ -239,10 +239,10 @@ class PrepareData:
         #solucao1:
 
         if value.split("/")[0] == value.split("/")[-1]:
-            return 1
+            return 0.0
         else:
             #return value.split("/")[-1]
-            return 2
+            return 1.0
 
 
 

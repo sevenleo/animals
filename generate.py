@@ -149,10 +149,12 @@ class Generate:
                 print("Lendo arquivo de teste ........")
                 TestData = ClassificationDataSet(features, 1, nb_classes=5)               
                 i=0
-                for line in open(test_file, 'r'):
+                test = open(test_file, 'r')
+                for line in test:
                         nline = np.fromstring(line, dtype=int, sep=',')
                         TestData.addSample(nline, -1)
                         i+=1
+                test.close()        
                 return TestData
 
 
@@ -197,7 +199,8 @@ class Generate:
                 print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
                 for line in open(test_file, 'r'):
                         x = ast.literal_eval(line)
-                        print( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
+                        #output.write( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
+                        #print( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
                         i=i+1   
                         
  
@@ -205,4 +208,6 @@ class Generate:
                 #print ("Criando arquivo de saida ......................\n")
                 #f = open('animal_output.csv', 'wb')
                 #f.write( str(fnn.activateOnDataset(testdata)) )
+                print("Concluido")
+
                 
