@@ -17,18 +17,25 @@ from generate import Generate
 #test = "../data/shelter_animal/test.csv"
 #train = "../data/shelter_animal/train.csv"
 train = "train.csv"
+test = "test.csv"
 
 
+print("Gerando matrix de treino ......................... ")
 data = PrepareData(train)
-
-
 f = open('animal_train.csv', 'wb')
 for line in data.x:
 	f.write((str(line)).split("[")[1].split("]")[0] + "\n")
 
 
-print("Trantando dados gerados ......................... ")
+print("Gerando matrix de teste ......................... ")
+f = open('animal_test.csv', 'wb')
+for line in data.PrepareTestFile(test):
+	#f.write((str(line)).split("[")[1].split("]")[0] + "\n")
+	f.write(str(line) + "\n")
 
+
+
+print("Trantando dados gerados ......................... ")
 geracao = Generate(data.x,data.y)
 
-geracao.predict_class(data.x,data.y,"animal_test.csv")
+geracao.predict_class(data.x,data.y,"animal_test.csv",1,1)

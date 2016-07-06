@@ -21,46 +21,55 @@ class PrepareData:
     x  = [] #matrix normal = array2D
     y  = [] #array de saida = valor esperado
     y2 = [] #dados adicionais
-
+    testx = []
+    
     def __init__(self,file):
-        print("Preparando data .............................")
-        # self.x.append("zero")
-        #self.x.extend(["AnimalID","Name","DateTime","AnimalType","SexuponOutcome","AgeuponOutcome","Breed","Color"])
-        #print( self.x[0:8])
-
+        print("Preparando data .........")
+        agemin,agemax = self.NormalizarIdades(file,False)    
         with open(file, 'r') as csv_file:
-
-            agemin,agemax = self.NormalizarIdades(file)    
-            
-
             train = csv.reader(csv_file, delimiter=',')
             for i, row in enumerate(train):
                 if i != 0: 
-
                     self.y.append ( self.OutcomeType(row[3]) )
                     #self.y2.append ( self.OutcomeSubtype(row[4]) )
-
-                    #criar matrix comum = array de 2 dimensoes
                     self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
- 
                #endif
             #endfor 
         #endwith
 
 
+    def PrepareTestFile(self,file):
+        with open(file, 'r') as csv_file:
+                agemin,agemax = self.NormalizarIdades(file,True)    
+                train = csv.reader(csv_file, delimiter=',')
+                for i, row in enumerate(train):
+                    if i != 0: 
+                        self.testx.append([self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[3]) , self.SexuponOutcome1(row[4]) , self.SexuponOutcome2(row[4]) , self.AgeuponOutcome(row[5],agemin,agemax) , self.Breed(row[6])  , self.Color1(row[7]) , self.Color2(row[7]), 0 ])
+                    #endif
+                #endfor 
+            #endwith
+        return self.testx
+
     #end__init__
-    def NormalizarIdades(self,file):
+    def NormalizarIdades(self,file,isTestFile):
         min=99999999999
         max=-99999999999
         with open(file, 'r') as csv_file:
                 train = csv.reader(csv_file, delimiter=',')
                 for i, row in enumerate(train):
                     if i != 0:
-                        idade = self.AgeuponOutcomeMinMax(row[7]) 
-                        if( idade < min):
-                            min = idade
-                        if (idade > max):
-                            max = idade
+                        if isTestFile==False:
+                            idade = self.AgeuponOutcomeMinMax(row[7]) 
+                            if( idade < min):
+                                min = idade
+                            if (idade > max):
+                                max = idade
+                        else:
+                            idade = self.AgeuponOutcomeMinMax(row[5]) 
+                            if( idade < min):
+                                min = idade
+                            if (idade > max):
+                                max = idade
         return [min,max]
 
 

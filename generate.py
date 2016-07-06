@@ -137,11 +137,8 @@ class Generate:
                 #insere os exemplos
                 i=0
                 for line in _x:
-                        #input = multivariate_normal(means[klass],cov[klass])
-                        #print(line)
                         TrainData.addSample(line, _y[i])
                         i+=1
-
                 return TrainData
 
 
@@ -158,22 +155,17 @@ class Generate:
 
 
 
-        def predict_class(self,_x,_y,test_file):
+        def predict_class(self,_x,_y,test_file,epochs,steps):
                 print("Iniciando funcao predict_class() .............")
-                #estatistica
-                #acertos =0
-                #erros=0
 
-                #separa uma parte do treino para teste   
-                #testdata, traindata = TrainData.splitWithProportion( 0.1 )
 
                 traindata = self.ReadTrainFile(_x,_y)
-                testdata = self.ReadTestFile( test_file, len(_x[0]) )
+                #testdata = self.ReadTestFile( test_file, len(_x[0]) )
 
                 print("convertendo arquivos .................")
 
                 traindata._convertToOneOfMany( )
-                testdata._convertToOneOfMany( )
+                #testdata._convertToOneOfMany( )
 
                 '''
                 print "____________________________________________________________________________"
@@ -191,36 +183,22 @@ class Generate:
 
                 print("Treinando .............")
 
-                for i in range(2):
-                        trainer.trainEpochs( 1 )
-
-                print ("Criando arquivo de saida ......................\n")
-                f = open('animal_output.csv', 'wb')
-                f.write( str(fnn.activateOnDataset(testdata)) )
-                
-                
-                #for i in xrange(0,len(testdata)):
-                        
-                        #print ( fnn.activate(testdata[i]))
-                        #if ( _y[i] != testdata['class'][i] ):
-                        #        erros+=1
-                        #else:
-                        #        acertos+=1
-
-                        #print("Exemplo - ", i)
-                        #print testdata['target'][i]
-                        #print ("classe: {}".format(res) )
-                        #print ("saida:  {}".format(int(testdata['class'][i])) ) 
+                for i in range(epochs):
+                        print("Treinando epoca ", i)
+                        trainer.trainEpochs( steps )
                         
 
 
+                print("Lendo arquivo de teste e classificando ..........")
+                output = open('animal_output.csv', 'wb')
+                for line in open(test_file, 'r'):
+                        print line
+                        nline = np.fromstring(line, dtype=int, sep=',')
+                        print nline
+                        print fnn.activate(nline)
 
-                #print("acertos:  " , acertos)
-                #print("erros:    ", erros)
 
-                #if ( acertos+erros == len(_x) ):
-                #        print("Teste Completo")
-                #else:
-                #        print("****** Teste Falho")
-                #        print(len(_x))
+                #print ("Criando arquivo de saida ......................\n")
+                #f = open('animal_output.csv', 'wb')
+                #f.write( str(fnn.activateOnDataset(testdata)) )
                 
