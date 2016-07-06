@@ -18,7 +18,12 @@ from generate import Generate
 #train = "../data/shelter_animal/train.csv"
 train = "train.csv"
 test = "test.csv"
-
+print("Treino = train.csv\nTest = test.csv")
+print("Treinar por quantas epocas?")
+epocas = raw_input()
+print("E ciclos?")
+ciclos = raw_input()
+print("O Arquivo de saida estara em animal_output.csv")
 
 print("Gerando matrix de treino ......................... ")
 data = PrepareData(train)
@@ -39,4 +44,4 @@ t.close()
 print("Trantando dados gerados ......................... ")
 geracao = Generate(data.x,data.y)
 
-geracao.predict_class(data.x,data.y,"animal_test.csv",1,1)
+geracao.predict_class(data.x,data.y,"animal_test.csv",epocas,ciclos)
