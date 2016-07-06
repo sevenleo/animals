@@ -32,7 +32,7 @@ class PrepareData:
                 if i != 0: 
                     self.y.append ( self.OutcomeType(row[3]) )
                     #self.y2.append ( self.OutcomeSubtype(row[4]) )
-                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]) ])
+                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]),self.Hour([row[2]]),self.Minute([row[2]]),self.Month([row[2]]),self.Day([row[2]]),self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Domestic (row[8]),self.Miniature(row[8]),self.Longhair (row[8]),self.Shorthair(row[8]),self.Wirehair (row[8]), self.Color1(row[9]) , self.Color2(row[9]) ])
                #endif
             #endfor 
         #endwith
@@ -44,7 +44,7 @@ class PrepareData:
                 train = csv.reader(csv_file, delimiter=',')
                 for i, row in enumerate(train):
                     if i != 0: 
-                        self.testx.append([self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[3]) , self.SexuponOutcome1(row[4]) , self.SexuponOutcome2(row[4]) , self.AgeuponOutcome(row[5],agemin,agemax) , self.Breed(row[6])  , self.Color1(row[7]) , self.Color2(row[7]) ])
+                        self.testx.append([self.Name(row[1]) , self.Date([row[2]]), self.Hour([row[2]]),self.Minute([row[2]]),self.Month([row[2]]),self.Day([row[2]]),self.AnimalType(row[3]) , self.SexuponOutcome1(row[4]) , self.SexuponOutcome2(row[4]) , self.AgeuponOutcome(row[5],agemin,agemax) , self.Breed(row[6]),self.Domestic (row[6]),self.Miniature(row[6]),self.Longhair (row[6]),self.Shorthair(row[6]),self.Wirehair (row[6]), self.Color1(row[7]) , self.Color2(row[7]) ])
                     #endif
                 #endfor 
             #endwith
@@ -115,6 +115,26 @@ class PrepareData:
             return 0
         else:
             return 1
+
+    def Hour(self,value):
+        date = "".join(value)
+        hour   = float(date.split(":")[-3].split(" ")[-1])
+        return float(hour/24.0)
+
+    def Minute(self,value):
+        date = "".join(value)
+        minute = float(date.split(":")[-2])
+        return float(minute/60.0)
+    
+    def Month(self,value):
+        date = "".join(value)
+        month  = float(date.split("-")[1])
+        return float(month/12.0)
+    
+    def Day(self,value):
+        date = "".join(value)
+        day  = float(date.split("-")[2].split(" ")[0])
+        return float(day/31.0)
 
     def Date(self,value):
         date = "".join(value)
@@ -209,12 +229,47 @@ class PrepareData:
 
 
     def Breed (self, value):
-        if value.endswith("Mix"):
+        #soma com impares evita problemas de valores iguais ao acaso
+        if "Mix" in value:
+            #print ( "Mix" )
+            return 0
+        elif "/" in value:
             #print ( "Mix" )
             return 0
         else:
             #print ( "Pure" )
             return 1
+
+    def Domestic (self, value):
+        if "Domestic" in value:
+            return 0
+        else:
+            return 1
+
+    def Miniature(self, value):
+        if "Miniature" in value:
+            return 0
+        else:
+            return 1
+        
+    def Longhair (self, value):
+        if "Longhair" in value:
+            return 0
+        else:
+            return 1
+
+    def Shorthair (self, value):
+        if "Shorthair" in value:
+            return 0
+        else:
+            return 1
+
+    def Wirehair (self, value):
+        if "Wirehair" in value:
+            return 0
+        else:
+            return 1
+
 
 
     def Color1 (self, value):
@@ -235,16 +290,22 @@ class PrepareData:
         return float (options.get( value.split("/")[0], 0)/10.0)
 
     def Color2 (self, value):
-        #print ( value.split("/")[1:] )
-        #color2 = value.split("/")[1:] //como tratar se nao existe?
-        #color1,color2 = value.split("/") //como tratar se nao existe?
-        #solucao1:
-
         if value.split("/")[0] == value.split("/")[-1]:
             return 0
         else:
-            #return value.split("/")[-1]
-            return 1
+            options = {
+            'Black': 10,
+            'Blue': 1,
+            'Brown': 2,
+            'Gray': 3,
+            'Orange': 4,
+            'Red': 5,
+            'Sable': 6,
+            'Tan': 7,
+            'Tricolor': 8,
+            'White': 9
+            }
+            return float (options.get( value.split("/")[-1], 11)/12.0)
 
 
 
