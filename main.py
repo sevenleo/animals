@@ -27,12 +27,12 @@ data = PrepareData(train)
 
 
 for line in data.x:
-	#print( line.split("[")[1].split("]")[1] )
-	a=line
 	#tirar parenteses
 	#animal.csv
-print("")
+	#print( line.split("[")[1].split("]")[1] )
+	print(line)
 
+print("Trantando dados gerados ......................... ")
 #geracao = Generate(data.x,data.y)
 geracao = Generate()
 geracao.train("animal_train.csv")
