@@ -145,10 +145,10 @@ class PrepareData:
             'Died': 1,
             'Euthanasia': 2,
             'Transfer': 3,
-            'Return_to_owner': 2,
+            'Return_to_owner': 4,
         }
 
-        return float (options.get(value,0)/1)
+        return float (options.get(value,0)/4)
 
 
     def AnimalType(self, value):
@@ -169,7 +169,7 @@ class PrepareData:
         }
         
         #print ( value.split(" ")[0] )
-        return float (options.get(value.split(" ")[0],0)/1)
+        return float (options.get(value.split(" ")[0],0)/2)
 
 
     def SexuponOutcome2(self, value):
@@ -231,7 +231,7 @@ class PrepareData:
             'Tricolor': 8,
             'White': 9
         }
-        return float (options.get( value.split("/")[0], 0)/1.0)
+        return float (options.get( value.split("/")[0], 0)/10.0)
 
     def Color2 (self, value):
         #print ( value.split("/")[1:] )
