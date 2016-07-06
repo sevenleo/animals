@@ -70,7 +70,6 @@ class Generate:
                 input_size = x_train.shape[1]
                 target_size = y_train.shape[1]
 
-
                 # prepara o  dataset
                 ds = SDS( input_size, target_size ) #cria o data set com o tamanho da matriz lida
                 ds.setField( 'input', x_train ) #seta o tamanho dos campos
@@ -168,22 +167,19 @@ class Generate:
 
                 traindata = self.ReadTrainFile(_x,_y)
                 #testdata = self.ReadTestFile( test_file, len(_x[0]) )
+                
+                print "____________________________________________________________________________"
+                print "Number of training patterns: ", len(traindata)
+                print "Input and output dimensions: ", traindata.indim, traindata.outdim
+                #print "First sample (input, target, class):"
+                #print traindata['input'][0], traindata['target'][0], traindata['class'][0]
+                print "____________________________________________________________________________\n"
+                
 
                 print("convertendo arquivos .................")
 
                 traindata._convertToOneOfMany( )
                 #testdata._convertToOneOfMany( )
-
-                '''
-                print "____________________________________________________________________________"
-                print "Number of training patterns: ", len(traindata)
-                print "Input and output dimensions: ", traindata.indim, traindata.outdim
-                print "First sample (input, target, class):"
-                print traindata['input'][0], traindata['target'][0], traindata['class'][0]
-                print "____________________________________________________________________________\n"
-                '''
-
-                
 
                 import os.path
                 if os.path.exists('rede_animal.xml'):
@@ -203,9 +199,6 @@ class Generate:
                         NetworkWriter.writeToFile(fnn, 'rede_animal.xml')
                         print(" Rede salva em rede_animal.xml (Ok) ")
 
-                      
-
-
                 print("Lendo arquivo de teste e classificando ..........")
                 output = open('animal_output.csv', 'wb')
                 i=1
@@ -213,14 +206,7 @@ class Generate:
                 for line in open(test_file, 'r'):
                         x = ast.literal_eval(line)
                         output.write( "{},{},{},{},{},{} \n".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
-                        #print( "{},{},{},{},{},{}".format(i,fnn.activate( x )[0],fnn.activate( x )[1],fnn.activate( x )[2],fnn.activate( x )[3],fnn.activate( x )[4]) )
                         i=i+1   
-                        
- 
-
-                #print ("Criando arquivo de saida ......................\n")
-                #f = open('animal_output.csv', 'wb')
-                #f.write( str(fnn.activateOnDataset(testdata)) )
                 print("Concluido")
 
                 

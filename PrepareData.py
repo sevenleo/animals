@@ -32,7 +32,7 @@ class PrepareData:
                 if i != 0: 
                     self.y.append ( self.OutcomeType(row[3]) )
                     #self.y2.append ( self.OutcomeSubtype(row[4]) )
-                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
+                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]) ])
                #endif
             #endfor 
         #endwith
@@ -44,7 +44,7 @@ class PrepareData:
                 train = csv.reader(csv_file, delimiter=',')
                 for i, row in enumerate(train):
                     if i != 0: 
-                        self.testx.append([self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[3]) , self.SexuponOutcome1(row[4]) , self.SexuponOutcome2(row[4]) , self.AgeuponOutcome(row[5],agemin,agemax) , self.Breed(row[6])  , self.Color1(row[7]) , self.Color2(row[7]), 0 ])
+                        self.testx.append([self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[3]) , self.SexuponOutcome1(row[4]) , self.SexuponOutcome2(row[4]) , self.AgeuponOutcome(row[5],agemin,agemax) , self.Breed(row[6])  , self.Color1(row[7]) , self.Color2(row[7]) ])
                     #endif
                 #endfor 
             #endwith
@@ -169,7 +169,7 @@ class PrepareData:
         }
         
         #print ( value.split(" ")[0] )
-        return float (options.get(value.split(" ")[0],0)/2)
+        return float (options.get(value.split(" ")[0],0)/2.0)
 
 
     def SexuponOutcome2(self, value):
