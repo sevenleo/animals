@@ -138,13 +138,14 @@ class PrepareData:
             return 1.0
 
 
+    #ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer
     def OutcomeType(self, value):
         options = {
             'Adoption': 0,
-            'Transfer': 1,
-            'Return_to_owner': 2,
-            'Euthanasia': 3,
-            'Died': 4
+            'Died': 1,
+            'Euthanasia': 2,
+            'Transfer': 3,
+            'Return_to_owner': 4,
         }
 
         return float (options.get(value,0)/4)
