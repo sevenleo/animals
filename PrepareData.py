@@ -21,6 +21,7 @@ class PrepareData:
     x  = [] #matrix normal = array2D
     y  = [] #array de saida = valor esperado
     y2 = [] #dados adicionais
+
     def __init__(self,file):
         print("Preparando data .............................")
         # self.x.append("zero")
@@ -28,8 +29,11 @@ class PrepareData:
         #print( self.x[0:8])
 
         with open(file, 'r') as csv_file:
+
+            agemin,agemax = self.NormalizarIdades(file)    
+            
+
             train = csv.reader(csv_file, delimiter=',')
-            end=0
             for i, row in enumerate(train):
                 if i != 0: 
 
@@ -53,7 +57,7 @@ class PrepareData:
                     '''
 
                     #criar matrix comum = array de 2 dimensoes
-                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7]) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
+                    self.x.append( [self.Name(row[1]) , self.Date([row[2]]), self.AnimalType(row[5]) , self.SexuponOutcome1(row[6]) , self.SexuponOutcome2(row[6]) , self.AgeuponOutcome(row[7],agemin,agemax) , self.Breed(row[8])  , self.Color1(row[9]) , self.Color2(row[9]), self.OutcomeType(row[3]) ])
  
                #endif
             #endfor 
@@ -63,6 +67,42 @@ class PrepareData:
         #self.Printer(len(x)/9) #printar o numpy part
 
     #end__init__
+    def NormalizarIdades(self,file):
+        min=99999999999
+        max=-99999999999
+        with open(file, 'r') as csv_file:
+                train = csv.reader(csv_file, delimiter=',')
+                for i, row in enumerate(train):
+                    if i != 0:
+                        idade = self.AgeuponOutcomeMinMax(row[7]) 
+                        if( idade < min):
+                            min = idade
+                        if (idade > max):
+                            max = idade
+        return [min,max]
+
+
+    #funcao auxiliar   
+    def AgeuponOutcomeMinMax(self, value):
+        
+        if value is '': 
+            return -1
+        else:
+            number = value.split(" ")[0]
+            string = value.split(" ")[-1]
+
+            number=int(number)
+            
+            if string.startswith("year"):
+                number=int(number)*365
+            elif string.startswith("month"):
+                number=int(number)*30
+            elif string.startswith("weeks"):
+                number=int(number)*7
+            #print ( number )
+            return number
+       
+
 
     def Printer(self,lines):
         for i in xrange(lines):
@@ -72,45 +112,51 @@ class PrepareData:
             print("\n")
 
 
+
+
+
+
+
+
+
     #SWITCHS
     #http://www.pydanny.com/why-doesnt-python-have-switch-case.html
     def Name(self,value):
     	
         if value is '':
-            return 1
+            return 0
         else:
-            return 2
+            return 1
 
     def Date(self,value):
-        return 2
-        """
-        day    = value.split("-")[2]
-        month  = value.split("-")[1]
-        hour   = value.split(":")[-3].split(" ")[-1]
-        minute = value.split(":")[-2]
+        date = "".join(value)
 
-        print(value,day,month,hour,minute)
+        day    = date.split("-")[2].split(" ")[0]
+        month  = date.split("-")[1]
+        hour   = date.split(":")[-3].split(" ")[-1]
+        minute = date.split(":")[-2]
+
 
         if month==12:
             if (day==25 or day==31):
-                return 1
-        if month==5:
+                return 0
+        elif month==5:
             if (day<5):
-                return 1
-        if month==12:
+                return 0
+        elif month==12:
             if (day==25 or day==31):
-                return 1
-        return 2
-        """
+                return 0
+        else:
+            return 1
 
 
     def OutcomeType(self, value):
         options = {
-            'Return_to_owner': 1,
-            'Euthanasia': 2,
-            'Adoption': 3,
-            'Transfer': 4,
-            'Died': 5
+            'Adoption': 0,
+            'Transfer': 1,
+            'Return_to_owner': 2,
+            'Euthanasia': 3,
+            'Died': 4
         }
 
         return options.get(value,-1)
@@ -118,8 +164,8 @@ class PrepareData:
 
     def AnimalType(self, value):
         options = {
-            'Dog': 1,
-            'Cat': 2
+            'Dog': 0,
+            'Cat': 1
         }
         #print ( value)
         return options.get(value,-1)
@@ -127,27 +173,27 @@ class PrepareData:
 
     def SexuponOutcome1(self, value):
         options = {
+            'Unknown': 0,
             'Intact': 1,
             'Spayed': 2,
-            'Neutered': 3,
-            'Unknown': 4
+            'Neutered': 2
         }
         
         #print ( value.split(" ")[0] )
-        return options.get(value.split(" ")[0],-1)
+        return options.get(value.split(" ")[0],0)
 
 
     def SexuponOutcome2(self, value):
 
         if value.endswith("Male"):
             #print ( "Male" )
-            return 1
+            return 0
         else:
             #print ( "Female" )
-            return 2
+            return 1
 
 
-    def AgeuponOutcome(self, value):
+    def AgeuponOutcome(self, value, min, max):
         
         if value is '': 
             return -1
@@ -165,9 +211,11 @@ class PrepareData:
                 number=int(number)*7
             
 
-            #print ( number )
-            return number
+            #saida de 0 a 1            
+            return ((float(number) - float(min))/float(max))
        
+
+
 
     def Breed (self, value):
         if value.endswith("Mix"):

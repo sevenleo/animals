@@ -10,10 +10,20 @@ from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
 from sklearn.metrics import mean_squared_error as MSE
 
+
+from pybrain.datasets            import ClassificationDataSet
+from pybrain.utilities           import percentError
+from pybrain.tools.shortcuts     import buildNetwork
+from pybrain.supervised.trainers import BackpropTrainer
+from pybrain.structure.modules   import SoftmaxLayer
+
+from pylab import ion, ioff, figure, draw, contourf, clf, show, hold, plot
+from scipy import diag, arange, meshgrid, where
+from numpy.random import multivariate_normal
+
 class Generate:
        
-        #def __init__(self,_x,_y):
-        def __init__(self):
+        def __init__(self,_x,_y):
                 print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
 
 
@@ -22,13 +32,13 @@ class Generate:
                 X=_x
                 y=_y
                 i=1
-                for line in X:
+                for line in self.X:
                         print( "{},{},{},{},{},{}".format(i,random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),) )
                         i=i+1                
         
 
         def train(self,train_file):
-                #treino de regressao MLP
+                #treino de regressao ML
 
                 #arquivo onde serao gravados os dados de treino
                 output_model_file = 'model.pkl'
@@ -40,9 +50,9 @@ class Generate:
                 epochs = 6 
 
                 # carrega o arquivo de treino
-                print( "...")
+                
                 train = np.loadtxt( train_file, delimiter = ',' )
-                print( ".................")
+                
                 #separa em pares 
                 x_train = train[:,0:-1]   #par = (tudo , tudo-ultimo)
                 y_train = train[:,-1]     #par = (tudo , ultimo)
@@ -74,6 +84,8 @@ class Generate:
                         
                 #gera arquivo de saida       
                 pickle.dump( net, open( output_model_file, 'wb' ))
+
+
 
         def predict(self,test_file):
                 model_file = 'model.pkl'
@@ -111,3 +123,114 @@ class Generate:
 
                 print "testing RMSE:", rmse
                 np.savetxt( output_predictions_file, p, fmt = '%.6f' )
+
+
+        def ReadTrainFile(self,_x,_y):
+                 #prepara um banco de dados com as proporcoes dos arquivos de entrada _x e _y
+                TrainData = ClassificationDataSet(len(_x[0]), 1, nb_classes=5)
+
+                #insere os exemplos
+                i=0
+                for line in _x:
+                        #input = multivariate_normal(means[klass],cov[klass])
+                        #print(line)
+                        TrainData.addSample(line, _y[i])
+                        i+=1
+
+                return TrainData
+
+        def ReadTestFile(self,test_file,features):
+                TestData = ClassificationDataSet(features, 1, nb_classes=5)               
+                i=0
+                for line in open(test_file, 'r'):
+                        nline = np.fromstring(line, dtype=int, sep=',')
+                        TestData.addSample(nline, -1)
+                        i+=1
+                return TestData
+
+
+
+        def predict_class(self,_x,_y,test_file):
+                #estatistica
+                acertos =0
+                erros=0
+
+                
+                #separa uma parte do treino para teste   
+                #testdata, traindata = TrainData.splitWithProportion( 0.1 )
+
+                traindata = self.ReadTrainFile(_x,_y)
+                testdata = self.ReadTestFile( test_file, len(_x[0]) )
+
+                traindata._convertToOneOfMany( )
+                testdata._convertToOneOfMany( )
+
+                """
+                print "____________________________________________________________________________"
+                print "Number of training patterns: ", len(traindata)
+                print "Input and output dimensions: ", traindata.indim, traindata.outdim
+                print "First sample (input, target, class):"
+                print traindata['input'][0], traindata['target'][0], traindata['class'][0]
+                print "____________________________________________________________________________\n"
+
+                """
+
+                fnn = buildNetwork( traindata.indim, 5, traindata.outdim, outclass=SoftmaxLayer )
+                trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
+
+                """
+                ticks = arange(-3.,6.,0.2)
+                X, Y = meshgrid(ticks, ticks)
+
+                # need column vectors in dataset, not arrays
+                griddata = ClassificationDataSet(2,1, nb_classes=3)
+                for i in xrange(X.size):
+                    griddata.addSample([X.ravel()[i],Y.ravel()[i]], [0])
+                griddata._convertToOneOfMany()  # this is still needed to make the fnn feel comfy
+                
+                """
+                for i in range(2):
+                        trainer.trainEpochs( 1 )
+
+                for i in xrange(0,len(testdata)):
+                        '''
+                        a=int(testdata['target'][i][0])
+                        b=int(testdata['target'][i][1])
+                        c=int(testdata['target'][i][2])
+                        d=int(testdata['target'][i][3])
+                        e=int(testdata['target'][i][4])
+
+
+                        res=-1
+                        if (a==1):
+                        res+=1
+                        elif (b==1):
+                        res+=2
+                        elif (c==1):
+                        res+=3
+                        elif (d==1):
+                        res+=4
+                        elif (e==1):
+                        res+=5
+                        '''
+
+                        if ( _y[i] != testdata['class'][i] ):
+                                erros+=1
+                        else:
+                                acertos+=1
+
+                        print("Exemplo - ", i)
+                        print testdata['target'][i]
+                        #print ("classe: {}".format(res) )
+                        print ("saida:  {}".format(int(testdata['class'][i])) ) 
+                        print ("____________________________" )
+
+                print("acertos:  " , acertos)
+                print("erros:    ", erros)
+
+                if ( acertos+erros == len(_x) ):
+                        print("Teste Completo")
+                else:
+                        print("****** Teste Falho")
+                        print(len(_x))
+                

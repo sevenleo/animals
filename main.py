@@ -25,16 +25,15 @@ train = "microtrain.csv"
 
 data = PrepareData(train)
 
-
-for line in data.x:
+#for line in data.x:
 	#tirar parenteses
 	#animal.csv
 	#print( line.split("[")[1].split("]")[1] )
-	print(line)
+	#print(line)
 
 print("Trantando dados gerados ......................... ")
-#geracao = Generate(data.x,data.y)
-geracao = Generate()
-geracao.train("animal_train.csv")
-geracao.predict("animal_test.csv")
+geracao = Generate(data.x,data.y)
 
+
+#geracao.train("animal_train.csv")
+geracao.predict_class(data.x,data.y,"animal_test.csv")
