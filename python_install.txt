@@ -1,119 +1,119 @@
-    1  ls
-    2  cd /mnt/
-    3  ls
-    4  cd  /e/Users/Leo/Documents/GitHub/othello-reversi (master)
-    5  cd  /e/Users/Leo/Documents/GitHub/othello-reversi
-    6  cd /e/Users/Leo/Documents/GitHub/othello-reversi
-    7  cd e/
-    8  cd /Users/Leo/Documents/GitHub/othello-reversi
-    9  cd /Users/Leo/Documents/GitHub
-   10  cd Users/Leo/Documents/GitHub
-   11  cd othello-reversi/
-   12  ls
-   13  git status
-   14  cd ~
-   15  subl ~/.bashrc 
-   16  exit
-   17  ls
-   18  cd /mnt/e/Users/Leo/Documents/GitHub/othello-reversi
-   19  ls
-   20  cat board.txt 
-   21  git add .
-   22  git commit -m "delay plays"
-   23  ls
-   24  cd Documents/
-   25  cd GitHub/
-   26  cd animals/
-   27  ls
-   28  python main.py >> saida.csv
-   29  pip install numpy
-   30  sudo apt-get install python-pip
-   31  sudo  apt-get update
-   32  python
-   33  cd Documents/
-   34  cd GitHub/
-   35  ls
-   36  mkdir pybrain
-   37  cd pybrain/
-   38  git init
-   39  git clone git://github.com/pybrain/pybrain.git
-   40  cd ..
-   41  rmdir pybrain/
-   42  sudo rmdir pybrain/
-   43  ls
-   44  cd pybrain/
-   45  git rm
-   46  ls
-   47  cd ..
-   48  rm -rf pybrain/
-   49  pip install scipy
-   50  sudo apt-get install python-pip
-   51  ls
-   52  cd
-   53  pwd
-   54  ls
-   55  cd ../..
-   56  ls
-   57  cd ..
-   58  ls
-   59  cd c 
-   60  ls
-   61  ipconfig
-   62  top
-   63  gedit
-   64  geany 
-   65  ls
-   66  cd ~~
-   67  cd ~
-   68  ls
-   69  history
-   70  vi
-   71  cat
-   72  cd e
-   73  pwd
-   74  cd Documents/
-   75  ls
-   76  cd GitHub/
-   77  cd 
-   78  ls
-   79  cd 
-   80  cd e\Users\Leo\Documents\GitHub\animals
-   81  ls
-   82  cd Documents/GitHub/animals/
-   83  ls
-   84  python kin_predict.py 
-   85  pip install numpy
-   86  sudo apt-get install python-dev
-   87  pip install numpy
-   88  sudo pip install numpy
-   89  python kin_predict.py 
-   90  sudo pip pybrain
-   91  sudo pip install pybrain
-   92  python kin_predict.py 
-   93  sudo pip install scipy
-   94  python kin_predict.py 
-   95  sudo pip install scipy
-   96  sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
-   97  sudo apt-get install python-scipy
-   98  python kin_predict.py 
-   99  sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
-  100  python kin_predict.py 
-  101* sudo apt-get install pyt
-  102  python kin_predict.py 
-  103  python kin_train.py 
-  104  python main.py 
-  105  ls ani
-  106  ls ani*
-  107  ls
-  108  python main.py 
-  109  clear all
-  110  python main.py 
-  111  reset
-  112  python main.py 
-  113  ls
-  114  cat model.pkl 
-  115  clear all
-  116  ls
-  117  python 
-  118  history 
-  119  history > python_install.txt
+ls
+cd /mnt/
+ls
+cd  /e/Users/Leo/Documents/GitHub/othello-reversi (master)
+cd  /e/Users/Leo/Documents/GitHub/othello-reversi
+cd /e/Users/Leo/Documents/GitHub/othello-reversi
+cd e/
+cd /Users/Leo/Documents/GitHub/othello-reversi
+cd /Users/Leo/Documents/GitHub
+cd Users/Leo/Documents/GitHub
+cd othello-reversi/
+ls
+git status
+cd ~
+subl ~/.bashrc 
+exit
+ls
+cd /mnt/e/Users/Leo/Documents/GitHub/othello-reversi
+ls
+cat board.txt 
+git add .
+git commit -m "delay plays"
+ls
+cd Documents/
+cd GitHub/
+cd animals/
+ls
+python main.py >> saida.csv
+pip install numpy
+sudo apt-get install python-pip
+sudo  apt-get update
+python
+cd Documents/
+cd GitHub/
+ls
+mkdir pybrain
+cd pybrain/
+git init
+git clone git://github.com/pybrain/pybrain.git
+cd ..
+rmdir pybrain/
+sudo rmdir pybrain/
+ls
+cd pybrain/
+git rm
+ls
+cd ..
+rm -rf pybrain/
+pip install scipy
+sudo apt-get install python-pip
+ls
+cd
+pwd
+ls
+cd ../..
+ls
+cd ..
+ls
+cd c 
+ls
+ipconfig
+top
+gedit
+geany 
+ls
+cd ~~
+cd ~
+ls
+history
+vi
+cat
+cd e
+pwd
+cd Documents/
+ls
+cd GitHub/
+cd 
+ls
+cd 
+cd e\Users\Leo\Documents\GitHub\animals
+ls
+cd Documents/GitHub/animals/
+ls
+python kin_predict.py 
+pip install numpy
+sudo apt-get install python-dev
+pip install numpy
+sudo pip install numpy
+python kin_predict.py 
+sudo pip pybrain
+sudo pip install pybrain
+python kin_predict.py 
+sudo pip install scipy
+python kin_predict.py 
+sudo pip install scipy
+sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+sudo apt-get install python-scipy
+python kin_predict.py 
+sudo apt-get install python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
+python kin_predict.py 
+sudo apt-get install pyt
+python kin_predict.py 
+python kin_train.py 
+python main.py 
+ls ani
+ls ani*
+ls
+python main.py 
+clear all
+python main.py 
+reset
+python main.py 
+ls
+cat model.pkl 
+clear all
+ls
+python 
+history 
+history > python_install.txt

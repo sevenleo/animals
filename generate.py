@@ -17,7 +17,7 @@ class Generate:
                 print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
 
 
-        '''
+        
         def random(self):
                 X=_x
                 y=_y
@@ -25,10 +25,10 @@ class Generate:
                 for line in X:
                         print( "{},{},{},{},{},{}".format(i,random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),) )
                         i=i+1                
-        '''
+        
 
         def train(self,train_file):
-                "train a regression MLP"
+                #treino de regressao MLP
 
                 #arquivo onde serao gravados os dados de treino
                 output_model_file = 'model.pkl'

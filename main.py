@@ -8,8 +8,6 @@ import json
 import random, copy
 
 from PrepareData import PrepareData
-from perceptronWeb import Perceptron
-from perceptronLeo import Perceptron2
 from generate import Generate
 
 
@@ -29,13 +27,14 @@ data = PrepareData(train)
 
 
 for line in data.x:
-	print(line)
+	#print( line.split("[")[1].split("]")[1] )
+	a=line
 	#tirar parenteses
 	#animal.csv
-
+print("")
 
 #geracao = Generate(data.x,data.y)
 geracao = Generate()
-geracao.train("animal.csv")
-geracao.predict("test.csv")
+geracao.train("animal_train.csv")
+geracao.predict("animal_test.csv")
 
