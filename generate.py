@@ -186,11 +186,11 @@ class Generate:
                 trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
 
                 print("Treinando .............")
-                '''
+                
                 for i in range(epochs):
                         print("Treinando epoca ", i)
                         trainer.trainEpochs( steps )
-                '''      
+                      
 
 
                 print("Lendo arquivo de teste e classificando ..........")
