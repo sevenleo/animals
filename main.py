@@ -20,9 +20,9 @@ train = "train.csv"
 test = "test.csv"
 print("Treino = train.csv\nTest = test.csv")
 print("Treinar por quantas epocas?")
-epocas = raw_input()
+epocas = int( raw_input())
 print("E ciclos?")
-ciclos = raw_input()
+ciclos = int(raw_input())
 print("O Arquivo de saida estara em animal_output.csv")
 
 print("Gerando matrix de treino ......................... ")
