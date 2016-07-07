@@ -29,17 +29,19 @@ from numpy.random                   import multivariate_normal
 class Generate:
        
         def __init__(self,_x,_y):
-                print("Iniciando funcao Generate .............. ")
+                print("funcao Generacao .............. ")
                 #print("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer")
 
         
-        def random(self):
-                X=_x
-                y=_y
+        def random(self,lines):
+                print("Criando dados aletatorios .... ")
                 i=1
-                for line in self.X:
-                        print( "{},{},{},{},{},{}".format(i,random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),random.randint(0,4),) )
+                output = open('animal_output_RANDOM.csv', 'wb')
+                output.write("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer\n") 
+                for line in xrange(lines):
+                        output.write( "{},{},{},{},{},{}\n".format(i,random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),random.uniform(0,1),) )
                         i=i+1                
+                print("Concluido. Verifique o arquivo animal_output_RANDOM.csv")
         
 
         """
@@ -168,12 +170,10 @@ class Generate:
                 traindata = self.ReadTrainFile(_x,_y)
                 #testdata = self.ReadTestFile( test_file, len(_x[0]) )
                 
-                print "____________________________________________________________________________"
-                print "Number of training patterns: ", len(traindata)
-                print "Input and output dimensions: ", traindata.indim, traindata.outdim
-                #print "First sample (input, target, class):"
-                #print traindata['input'][0], traindata['target'][0], traindata['class'][0]
-                print "____________________________________________________________________________\n"
+                print ("____________________________________________________________________________")
+                print ("A matrix de treino tem ", len(traindata),"linhas de dados")
+                print ("Dimensoes de Input e Output : ", traindata.indim, traindata.outdim)
+                print ("____________________________________________________________________________\n")
                 
 
                 print("convertendo arquivos .................")
@@ -183,10 +183,10 @@ class Generate:
 
                 import os.path
                 if os.path.exists('rede_animal.xml'):
-                    print(" Carregando a rede de treinos *************** ")
+                    print(" Carregando a rede de treinos do arquivo rede_animal.xml *************** ")
                     fnn = NetworkReader.readFrom('rede_animal.xml')
                 else:
-                    print(" Criando rede de treinos *************** ")
+                    print(" Criando rede de treinos no arquivo rede_animal.xml *************** ")
                     fnn = buildNetwork( traindata.indim, 5, traindata.outdim, outclass=SoftmaxLayer )
 
                 trainer = BackpropTrainer( fnn, dataset=traindata, momentum=0.1, verbose=True, weightdecay=0.01)
