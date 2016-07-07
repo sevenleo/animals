@@ -200,6 +200,7 @@ class Generate:
                         print(" Rede salva em rede_animal.xml (Ok) ")
 
                 print("Lendo arquivo de teste e classificando ..........")
+                print("Gerando resultados em ANIMAL_OUTPUT.CSV ..........")
                 output = open('animal_output.csv', 'wb')
                 i=1
                 output.write("ID,Adoption,Died,Euthanasia,Return_to_owner,Transfer\n")
